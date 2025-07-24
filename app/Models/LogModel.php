@@ -1,0 +1,55 @@
+<?php
+namespace App\Models;
+use CodeIgniter\Model;
+class LogModel extends Model {
+    protected $table = 'logs';
+    protected $primaryKey = 'LogsId';
+    protected $allowedFields = ['time', 'action', 'UserId', 'AccountId', 'DeviceId'];
+    public function GetLogsWithAccountId($AccountId) {
+        return $this->db->table($this->table)
+            ->select('logs.*, users.name as name, users.surname as surname')
+            ->join('users', 'users.UserId = logs.UserId', 'left')
+            ->orderBy('logs.time', 'DESC')
+            ->where('logs.AccountId', $AccountId)
+            ->get()
+            ->getResultArray();
+    }
+    public function GetLogsWithNames($AccountId, $Search) {
+        $Terms = explode(' ', $Search);
+        $query = $this->db->table($this->table)
+            ->select('logs.*, users.name as name, users.surname as surname')
+            ->join('users', 'users.UserId = logs.UserId', 'left')
+            ->orderBy('logs.time', 'DESC')
+            ->where('logs.AccountId', $AccountId);
+        if (count($Terms) == 1) {
+            $query->groupStart()
+                ->like('users.name', $Search, 'both')
+                ->orLike('users.surname', $Search, 'both')
+                ->groupEnd();
+        } elseif (count($Terms) == 2) {
+            $query->groupStart()
+                ->like('users.name', $Terms[0], 'both')
+                ->like('users.surname', $Terms[1], 'both')
+                ->groupEnd();
+        } else {
+            $query->groupStart();
+            foreach ($Terms as $Term) {
+                $query->orGroupStart()
+                    ->like('users.name', $term, 'both')
+                    ->orLike('users.surname', $term, 'both')
+                    ->groupEnd();
+            }
+            $query->groupEnd();
+        }
+        return $query->get()->getResultArray();
+    }
+    public function DeleteOldLogs(){
+        $LimitDate = date('Y-m-d H:i:s', strtotime('-7 days'));
+        return $this->where('time <', $LimitDate)->delete();
+    }
+    public function GetLastLog($UserId){
+        return $this->where('UserId', $UserId)
+                    ->orderBy('time', 'DESC')
+                    ->first();
+    }
+}
