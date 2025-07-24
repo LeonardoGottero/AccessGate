@@ -6,12 +6,14 @@ use App\Models\AccountModel;
 use App\Models\LogModel;
 use App\Models\DUModel;
 use CodeIgniter\HTTP\RequestInterface;
+
 class UserController extends BaseController{
     private $UserModel;
     private $AccountModel;
     private $LogModel;
     private $DUModel;
     private $DeviceModel;
+
     public function __construct(){
         $this->UserModel = new UserModel();
         $this->AccountModel = new AccountModel();
@@ -19,6 +21,7 @@ class UserController extends BaseController{
         $this->DUModel = new DUModel();
         $this->DeviceModel = new DeviceModel();
     }
+
     public function Index(){
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
@@ -30,6 +33,7 @@ class UserController extends BaseController{
             ->findAll();
         return view('/Users/Users', ['Users' => $Users]);
     }
+
     public function CreateUser() {
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
@@ -37,6 +41,7 @@ class UserController extends BaseController{
         }
         return view('/Users/User_Form');
     }
+
     public function SaveUser() {
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
@@ -71,6 +76,7 @@ class UserController extends BaseController{
         $this->UserConfirmationEmail($Email, $Token);
         return redirect()->to('/Users');
     }
+
     public function SaveDU($Tag){
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
@@ -89,6 +95,7 @@ class UserController extends BaseController{
             $this->DUModel->insertBatch($DataDU);
         }
     }
+
     public function EditUser($UserId) {
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
@@ -97,6 +104,7 @@ class UserController extends BaseController{
         $User = $this->UserModel->find($UserId);
         return view('/Users/User_Form', ['User' => $User]);
     }
+
     public function UpdateUser($UserId) {
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
@@ -129,6 +137,7 @@ class UserController extends BaseController{
             return redirect()->back()->with('error', 'Error al actualizar el usuario');
         }
     }
+
     public function DeleteUser($UserId) {
         $User = $this->UserModel->find($UserId);
         if (!$User) {
@@ -138,39 +147,38 @@ class UserController extends BaseController{
         $this->DUModel->where('UserId', $UserId)->delete();
         return redirect()->to('/Users')->with('message', 'Usuario eliminado correctamente');
     }
+
+    /**
+     * FIXED: Search functionality now correctly filters users.
+     */
     public function SearchUser(){
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
             return redirect()->to('/Login');
         }
-        $Search = $this->request->getPost('search');
-        $Terms = explode(' ', $Search);
-        $this->UserModel->where('AccountId', $AccountId);
-        if (count($Terms) == 1) {
-            $Users = $this->UserModel
-                ->groupStart()
+        $Search = trim($this->request->getPost('search'));
+        
+        $query = $this->UserModel->where('AccountId', $AccountId);
+    
+        if (!empty($Search)) {
+            $Terms = explode(' ', $Search, 2);
+            if (count($Terms) == 1) {
+                $query->groupStart()
                     ->like('name', $Search, 'both')
                     ->orLike('surname', $Search, 'both')
-                ->groupEnd();
-        }
-        elseif (count($Terms) == 2) {
-            $Users = $this->UserModel
-                ->groupStart()
+                    ->groupEnd();
+            } else {
+                $query->groupStart()
                     ->like('name', $Terms[0], 'both')
                     ->like('surname', $Terms[1], 'both')
-                ->groupEnd();
-        }else {
-            $Users = $this->UserModel
-                ->groupStart()
-                    ->like('name', $Terms[0], 'both')
-                    ->like('surname', $Terms[1], 'both')
-                ->groupEnd();
+                    ->groupEnd();
+            }
         }
-        $Users = $this->UserModel
-            ->orderBy('name', 'ASC')
-            ->findAll();
+    
+        $Users = $query->orderBy('name', 'ASC')->findAll();
         return view('/Users/Users', ['Users' => $Users]);
     }
+
     public function UserInfo($UserId){
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
@@ -178,8 +186,65 @@ class UserController extends BaseController{
         }
         $User = $this->UserModel->find($UserId);
         $LastLog = $this->LogModel->GetLastLog($UserId);
-        return view('/Users/UserInfo', ['User' => $User, 'LastLog' => $LastLog]);
+        
+        // 1. Get daily counts from the model
+        $dailyCounts = $this->LogModel->getDailyLogCountsForLast7Days($UserId);
+
+        // 2. Prepare arrays for the last 7 days
+        $labels = [];
+        $entradasData = [];
+        $salidasData = [];
+        
+        for ($i = 6; $i >= 0; $i--) {
+            $date = date('Y-m-d', strtotime("-$i days"));
+            $labels[] = date('D, M j', strtotime($date));
+            $entradasData[$date] = 0;
+            $salidasData[$date] = 0;
+        }
+
+        // 3. Populate with data from the database
+        foreach ($dailyCounts as $row) {
+            $date = $row['log_date'];
+            if (isset($entradasData[$date])) {
+                if ((int)$row['action'] === 1) {
+                    $entradasData[$date] = (int)$row['count'];
+                } elseif ((int)$row['action'] === 0) {
+                    $salidasData[$date] = (int)$row['count'];
+                }
+            }
+        }
+
+        // 4. Format data for Chart.js
+        $chartData = [
+            'labels' => $labels,
+            'datasets' => [
+                [
+                    'label' => 'Entradas',
+                    'data' => array_values($entradasData),
+                    'borderColor' => 'rgb(75, 192, 192)',
+                    'backgroundColor' => 'rgba(75, 192, 192, 0.5)',
+                    'fill' => false,
+                    'tension' => 0.1
+                ],
+                [
+                    'label' => 'Salidas',
+                    'data' => array_values($salidasData),
+                    'borderColor' => 'rgb(255, 99, 132)',
+                    'backgroundColor' => 'rgba(255, 99, 132, 0.5)',
+                    'fill' => false,
+                    'tension' => 0.1
+                ]
+            ]
+        ];
+
+        // Pass all data to the view
+        return view('/Users/UserInfo', [
+            'User' => $User,
+            'LastLog' => $LastLog,
+            'chartData' => json_encode($chartData)
+        ]);
     }
+
     protected function UserConfirmationEmail($Email, $Token){
         $User = $this->UserModel->where('email', $Email)->first();
         $Username = $User['name']." ".$User['surname'];
@@ -190,6 +255,7 @@ class UserController extends BaseController{
         $EmailService->setMessage("Hola $Username, \n\nParece que tu mail esta intentando ser conectado a un usuario de accessgate. Si no perteneces a una organizacion que usa accessgate puedes eliminar tu usuario clickeando <a href='\n\nhttps://accessgate.onrender.com/Users/UserSelfDelete/$Token'>aquí</a>");
         $EmailService->send();
     }
+
     public function UserSelfDelete($Token){
         $User = $this->UserModel->where('token', $Token)->first();
         if (!$User) {
