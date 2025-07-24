@@ -7,18 +7,25 @@
     <link rel="stylesheet" href="<?= base_url('CSS/Page.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
     <style>
-         .parallax{
-             background-image: url("<?= base_url('Images/parallax.jpg') ?>");
-             max-height: 2000px; 
-             background-attachment: fixed;
-             background-position: center;
-             background-repeat: no-repeat;
-             background-size: cover;
-             padding: 10%;
-             padding-top: 20%;
-             padding-bottom: 20%;
-         }
+        .parallax{
+            background-image: url("<?= base_url('Images/parallax.jpg') ?>");
+            max-height: 2000px; 
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 10%;
+            padding-top: 20%;
+            padding-bottom: 20%;
+        }
+        .chart-container {
+            padding: 20px;
+            height: 40vh;
+            width: 80%;
+            max-width: 600px;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -34,12 +41,12 @@
                 <a href="<?= site_url('Users') ?>">Usuarios</a>
                 <a href="<?= site_url('Logs') ?>">Registros</a>
                 <a href="<?= site_url('Shop') ?>">Tienda</a>
-                <a id="myBtn" style="cursor: pointer;">Cerrar sesion</a>>
+                <a id="myBtn" style="cursor: pointer;">Cerrar sesion</a>
             </div>
         </div>
     </nav>
     <div class="parallax">
-    <div class="bienvenido">
+        <div class="bienvenido">
             <center>
                 <h1>Datos del Usuario</h1>
                 <table class="accounttable">
@@ -60,8 +67,11 @@
                         <td><?php if(isset($LastLog)){ echo $LastLog['time']; }elseif(!isset($LastLog)){ echo "Hace más de 7 dias o nunca"; } ?></td>
                     </tr>
                 </table>
+                <div class="chart-container">
+                    <canvas id="userLogChart"></canvas>
+                </div>
                 <h2 class="Hello-title">Horario habilitado</h2>
-                <?php if($User['from_time'] == '00:00:00' & $User['to_time'] == '23:59:59'): ?>
+                <?php if($User['from_time'] == '00:00:00' && $User['to_time'] == '23:59:59'): ?>
                     <h2 class="Hello-title">Siempre</h2>
                 <?php else: ?> 
                     <table class="accounttable">
@@ -93,5 +103,59 @@
         <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contactanos</a></p>
     </footer>
     <script src="<?= base_url('Scripts/Pag.js') ?>"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('userLogChart');
+            const chartData = JSON.parse('<?= html_entity_decode($chartData ?? 'null'); ?>');
+            if (ctx && chartData) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: chartData.labels,
+                        datasets: chartData.datasets
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1,
+                                    color: 'rgba(255, 255, 255, 0.8)'
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)'
+                                }
+                            },
+                            x: {
+                                 ticks: {
+                                    color: 'rgba(255, 255, 255, 0.8)'
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)'
+                                }
+                            }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: 'rgba(255, 255, 255, 0.8)'
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Actividad del Usuario (Últimos 7 Días)',
+                                color: 'rgba(255, 255, 255, 0.9)',
+                                font: {
+                                    size: 18
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
