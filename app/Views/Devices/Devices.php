@@ -7,32 +7,30 @@
     <link rel="stylesheet" href="<?= base_url('CSS/Page.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
     <style>
-         .parallax{
-             background-image: url("<?= base_url('Images/parallax.jpg') ?>");
-             max-height: 2000px;
-             background-attachment: fixed;
-             background-position: center;
-             background-repeat: no-repeat;
-             background-size: cover;
-             padding: 10%;
-             padding-top: 20%;
-             padding-bottom: 20%;
-         }
-         /* --- INICIO: Estilos para el punto de status --- */
-         .status-dot {
+        .parallax{
+            background-image: url("<?= base_url('Images/parallax.jpg') ?>");
+            max-height: 2000px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 10%;
+            padding-top: 20%;
+            padding-bottom: 20%;
+        }
+        .status-dot {
             height: 12px;
             width: 12px;
             border-radius: 50%;
             display: inline-block;
             margin-right: 8px;
             vertical-align: middle;
-         }
-         .status-dot-green { background-color: #28a745; } /* Verde para Abriendo */
-         .status-dot-yellow { background-color: #ffc107; } /* Amarillo para Abierto */
-         .status-dot-red { background-color: #dc3545; } /* Rojo para Cerrando */
-         .status-dot-blue { background-color: #007bff; } /* Azul para En espera */
-         .status-dot-grey { background-color: #6c757d; } /* Gris para default */
-         /* --- FIN: Estilos para el punto de status --- */
+        }
+        .status-dot-green { background-color: #28a745; }
+        .status-dot-yellow { background-color: #ffc107; }
+        .status-dot-red { background-color: #dc3545; }
+        .status-dot-blue { background-color: #007bff; }
+        .status-dot-grey { background-color: #6c757d; }
     </style>
     <script>
         const baseUrl = "<?= base_url() ?>";
@@ -73,7 +71,6 @@
                     </thead>
                     <tbody>
                         <?php
-                        // Función auxiliar para obtener la clase de color según el estado
                         function getStatusClass($status) {
                             switch ($status) {
                                 case 'Abriendo': return 'status-dot-green';
@@ -124,10 +121,9 @@
             if (statusElements.length === 0) {
                 return;
             }
-
             function updateAllStatuses() {
                 statusElements.forEach(span => {
-                    const deviceId = span.dataset.id; // Corregido a 'id'
+                    const deviceId = span.dataset.id;
                     if (!deviceId) {
                         return;
                     }
@@ -139,21 +135,13 @@
                             return response.json();
                         })
                         .then(data => {
-                            // --- INICIO: Lógica de actualización de status y punto ---
                             if (data.status && span.textContent.trim() !== data.status) {
-                                // 1. Actualizar el texto del estado
                                 span.textContent = data.status;
-
-                                // 2. Encontrar el punto de color asociado
                                 const dot = span.previousElementSibling;
                                 if (!dot || !dot.classList.contains('status-dot')) {
                                     return;
                                 }
-
-                                // 3. Reiniciar las clases de color del punto
                                 dot.className = 'status-dot';
-
-                                // 4. Añadir la nueva clase de color según el estado
                                 let newClass;
                                 switch (data.status) {
                                     case 'Abriendo':
@@ -174,7 +162,6 @@
                                 }
                                 dot.classList.add(newClass);
                             }
-                            // --- FIN: Lógica de actualización de status y punto ---
                         })
                         .catch(error => {
                             console.error('Error fetching status for ' + deviceId + ':', error);
@@ -186,7 +173,7 @@
                         });
                 });
             }
-            setInterval(updateAllStatuses, 1000);
+            setInterval(updateAllStatuses, 500);
         });
     </script>
     <script src="<?= base_url('Scripts/Pag.js') ?>"></script>
