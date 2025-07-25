@@ -19,6 +19,9 @@
              padding-bottom: 20%;
          }
     </style>
+    <script>
+        const baseUrl = "<?= base_url() ?>";
+    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -46,6 +49,7 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
+                            <th>Status</th>
                             <th>Uid</th>
                             <th>Modificar</th>
                             <th>Borrar</th>
@@ -55,6 +59,11 @@
                         <?php foreach ($Devices as $Device) : ?>
                         <tr>
                             <td><a href="<?= site_url('Devices/Info/'.$Device['DeviceId']) ?>"><?= $Device['device_name'] ?></a></td>
+                            <td>
+                                <span class="device-status" data-Id="<?= esc($Device['DeviceId']) ?>">
+                                    <?= esc($Device['Status'] ?? 'En espera') ?>
+                                </span>
+                            </td>
                             <td><?= $Device['device_uid'] ?></td>
                             <td><a href="<?= base_url('/Devices/Edit/'.$Device['DeviceId']); ?>"><button class="btn-icon-m"><img height="30px" src="<?= base_url('Images/Edit.png')?>"></button></a></td>
                             <td><a href="<?= site_url('/Devices/Delete/'.$Device['DeviceId']) ?>" onclick="return confirm('¿Estás seguro de que deseas borrar este usuario?')"><button class="btn-icon-e"><img src="<?= base_url('Images/Delete.png')?>"></button></a></td>
@@ -77,6 +86,7 @@
     <footer class="footer">
         <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contactanos</a></p>
     </footer>
-    <script src="<?= base_url('Scripts/Pag.js') ?>"></script> 
+    <script src="<?= base_url('Scripts/Pag.js') ?>"></script>
+    <script src="<?= base_url('Scripts/StatusUpdater.js') ?>"></script> 
 </body>
 </html>

@@ -137,7 +137,6 @@ class UserController extends BaseController{
             return redirect()->back()->with('error', 'Error al actualizar el usuario');
         }
     }
-
     public function DeleteUser($UserId) {
         $User = $this->UserModel->find($UserId);
         if (!$User) {
@@ -147,10 +146,6 @@ class UserController extends BaseController{
         $this->DUModel->where('UserId', $UserId)->delete();
         return redirect()->to('/Users')->with('message', 'Usuario eliminado correctamente');
     }
-
-    /**
-     * FIXED: Search functionality now correctly filters users.
-     */
     public function SearchUser(){
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
@@ -178,7 +173,6 @@ class UserController extends BaseController{
         $Users = $query->orderBy('name', 'ASC')->findAll();
         return view('/Users/Users', ['Users' => $Users]);
     }
-
     public function UserInfo($UserId){
         $AccountId = session()->get('accountid');
         if (!$AccountId) {
@@ -186,23 +180,16 @@ class UserController extends BaseController{
         }
         $User = $this->UserModel->find($UserId);
         $LastLog = $this->LogModel->GetLastLog($UserId);
-        
-        // 1. Get daily counts from the model
         $dailyCounts = $this->LogModel->getDailyLogCountsForLast7Days($UserId);
-
-        // 2. Prepare arrays for the last 7 days
         $labels = [];
         $entradasData = [];
         $salidasData = [];
-        
         for ($i = 6; $i >= 0; $i--) {
             $date = date('Y-m-d', strtotime("-$i days"));
             $labels[] = date('D, M j', strtotime($date));
             $entradasData[$date] = 0;
             $salidasData[$date] = 0;
         }
-
-        // 3. Populate with data from the database
         foreach ($dailyCounts as $row) {
             $date = $row['log_date'];
             if (isset($entradasData[$date])) {
@@ -213,8 +200,6 @@ class UserController extends BaseController{
                 }
             }
         }
-
-        // 4. Format data for Chart.js
         $chartData = [
             'labels' => $labels,
             'datasets' => [
@@ -236,15 +221,12 @@ class UserController extends BaseController{
                 ]
             ]
         ];
-
-        // Pass all data to the view
         return view('/Users/UserInfo', [
             'User' => $User,
             'LastLog' => $LastLog,
             'chartData' => json_encode($chartData)
         ]);
     }
-
     protected function UserConfirmationEmail($Email, $Token){
         $User = $this->UserModel->where('email', $Email)->first();
         $Username = $User['name']." ".$User['surname'];
@@ -255,7 +237,6 @@ class UserController extends BaseController{
         $EmailService->setMessage("Hola $Username, \n\nParece que tu mail esta intentando ser conectado a un usuario de accessgate. Si no perteneces a una organizacion que usa accessgate puedes eliminar tu usuario clickeando <a href='\n\nhttps://accessgate.onrender.com/Users/UserSelfDelete/$Token'>aquí</a>");
         $EmailService->send();
     }
-
     public function UserSelfDelete($Token){
         $User = $this->UserModel->where('token', $Token)->first();
         if (!$User) {
