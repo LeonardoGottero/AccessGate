@@ -9,7 +9,7 @@
     <style>
          .parallax{
              background-image: url("<?= base_url('Images/parallax.jpg') ?>");
-             max-height: 2000px; 
+             max-height: 2000px;
              background-attachment: fixed;
              background-position: center;
              background-repeat: no-repeat;
@@ -18,6 +18,21 @@
              padding-top: 20%;
              padding-bottom: 20%;
          }
+         /* --- INICIO: Estilos para el punto de status --- */
+         .status-dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+         }
+         .status-dot-green { background-color: #28a745; } /* Verde para Abriendo */
+         .status-dot-yellow { background-color: #ffc107; } /* Amarillo para Abierto */
+         .status-dot-red { background-color: #dc3545; } /* Rojo para Cerrando */
+         .status-dot-blue { background-color: #007bff; } /* Azul para En espera */
+         .status-dot-grey { background-color: #6c757d; } /* Gris para default */
+         /* --- FIN: Estilos para el punto de status --- */
     </style>
     <script>
         const baseUrl = "<?= base_url() ?>";
@@ -50,20 +65,37 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Status</th>
+                            <th></th>
                             <th>Uid</th>
                             <th>Modificar</th>
                             <th>Borrar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($Devices as $Device) : ?>
+                        <?php
+                        // Función auxiliar para obtener la clase de color según el estado
+                        function getStatusClass($status) {
+                            switch ($status) {
+                                case 'Abriendo': return 'status-dot-green';
+                                case 'Abierto': return 'status-dot-yellow';
+                                case 'Cerrando': return 'status-dot-red';
+                                case 'En espera': return 'status-dot-blue';
+                                default: return 'status-dot-grey';
+                            }
+                        }
+
+                        foreach ($Devices as $Device) :
+                            $status = $Device['status'] ?? 'No recibido';
+                            $statusClass = getStatusClass($status);
+                        ?>
                         <tr>
                             <td><a href="<?= site_url('Devices/Info/'.$Device['DeviceId']) ?>"><?= $Device['device_name'] ?></a></td>
                             <td>
-                                <span class="device-status" data-Id="<?= esc($Device['DeviceId']) ?>">
-                                    <?= esc($Device['Status'] ?? 'En espera') ?>
+                                <span class="device-status" data-id="<?= esc($Device['DeviceId']) ?>">
+                                    <?= esc($status) ?>
                                 </span>
                             </td>
+                            <td><span class="status-dot <?= $statusClass ?>"></span></td>
                             <td><?= $Device['device_uid'] ?></td>
                             <td><a href="<?= base_url('/Devices/Edit/'.$Device['DeviceId']); ?>"><button class="btn-icon-m"><img height="30px" src="<?= base_url('Images/Edit.png')?>"></button></a></td>
                             <td><a href="<?= site_url('/Devices/Delete/'.$Device['DeviceId']) ?>" onclick="return confirm('¿Estás seguro de que deseas borrar este usuario?')"><button class="btn-icon-e"><img src="<?= base_url('Images/Delete.png')?>"></button></a></td>
@@ -86,7 +118,77 @@
     <footer class="footer">
         <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contactanos</a></p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusElements = document.querySelectorAll('.device-status');
+            if (statusElements.length === 0) {
+                return;
+            }
+
+            function updateAllStatuses() {
+                statusElements.forEach(span => {
+                    const deviceId = span.dataset.id; // Corregido a 'id'
+                    if (!deviceId) {
+                        return;
+                    }
+                    fetch(`${baseUrl}/Device/GetStatus?Device=${deviceId}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            // --- INICIO: Lógica de actualización de status y punto ---
+                            if (data.status && span.textContent.trim() !== data.status) {
+                                // 1. Actualizar el texto del estado
+                                span.textContent = data.status;
+
+                                // 2. Encontrar el punto de color asociado
+                                const dot = span.previousElementSibling;
+                                if (!dot || !dot.classList.contains('status-dot')) {
+                                    return;
+                                }
+
+                                // 3. Reiniciar las clases de color del punto
+                                dot.className = 'status-dot';
+
+                                // 4. Añadir la nueva clase de color según el estado
+                                let newClass;
+                                switch (data.status) {
+                                    case 'Abriendo':
+                                        newClass = 'status-dot-green';
+                                        break;
+                                    case 'Abierto':
+                                        newClass = 'status-dot-yellow';
+                                        break;
+                                    case 'Cerrando':
+                                        newClass = 'status-dot-red';
+                                        break;
+                                    case 'En espera':
+                                        newClass = 'status-dot-blue';
+                                        break;
+                                    default:
+                                        newClass = 'status-dot-grey';
+                                        break;
+                                }
+                                dot.classList.add(newClass);
+                            }
+                            // --- FIN: Lógica de actualización de status y punto ---
+                        })
+                        .catch(error => {
+                            console.error('Error fetching status for ' + deviceId + ':', error);
+                            span.textContent = 'Desconocido';
+                            const dot = span.previousElementSibling;
+                             if (dot && dot.classList.contains('status-dot')) {
+                                dot.className = 'status-dot status-dot-grey';
+                             }
+                        });
+                });
+            }
+            setInterval(updateAllStatuses, 1000);
+        });
+    </script>
     <script src="<?= base_url('Scripts/Pag.js') ?>"></script>
-    <script src="<?= base_url('Scripts/StatusUpdater.js') ?>"></script> 
 </body>
 </html>
