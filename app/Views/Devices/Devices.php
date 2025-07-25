@@ -63,7 +63,6 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Status</th>
-                            <th></th>
                             <th>Uid</th>
                             <th>Modificar</th>
                             <th>Borrar</th>
@@ -88,11 +87,11 @@
                         <tr>
                             <td><a href="<?= site_url('Devices/Info/'.$Device['DeviceId']) ?>"><?= $Device['device_name'] ?></a></td>
                             <td>
+                                <span class="status-dot <?= $statusClass ?>"></span>
                                 <span class="device-status" data-id="<?= esc($Device['DeviceId']) ?>">
                                     <?= esc($status) ?>
                                 </span>
                             </td>
-                            <td><span class="status-dot <?= $statusClass ?>"></span></td>
                             <td><?= $Device['device_uid'] ?></td>
                             <td><a href="<?= base_url('/Devices/Edit/'.$Device['DeviceId']); ?>"><button class="btn-icon-m"><img height="30px" src="<?= base_url('Images/Edit.png')?>"></button></a></td>
                             <td><a href="<?= site_url('/Devices/Delete/'.$Device['DeviceId']) ?>" onclick="return confirm('¿Estás seguro de que deseas borrar este usuario?')"><button class="btn-icon-e"><img src="<?= base_url('Images/Delete.png')?>"></button></a></td>
