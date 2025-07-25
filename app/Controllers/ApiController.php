@@ -69,4 +69,28 @@ class ApiController extends BaseController{
         $this->DeviceModel->insert(['device_uid' => $data->device]);
         return $this->response->setStatusCode(ResponseInterface::HTTP_CREATED, 'New device registered successfully.');
     }
+    public function SetStatus(){
+        $data = $this->request->getJSON();
+        $device = $this->DeviceModel->where('device_uid', $data->device)->first();
+        if (!$device) {
+            return $this->response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND, 'Device not found.');
+        }
+        if (!isset($data->status)) {
+            return $this->response->setStatusCode(ResponseInterface::HTTP_BAD_REQUEST, 'Status not provided.');
+        }
+        $allowedStatuses = ['En espera', 'Abriendo', 'Abierto', 'Cerrando'];
+        $this->DeviceModel->update($device['DeviceId'],['status' => $data->status]);
+        return $this->response->setStatusCode(ResponseInterface::HTTP_OK, 'Status updated successfully.');
+    }
+    public function GetStatus(){
+        $DeviceId = $this->request->getGet('device');
+        if (!$DeviceId) {
+            return $this->response->setStatusCode(ResponseInterface::HTTP_BAD_REQUEST, 'Device ID not provided.');
+        }
+        $device = $this->DeviceModel->where('DeviceId', $DeviceId)->first();
+        if (!$device) {
+            return $this->response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND, 'Device not found.');
+        }
+        return $this->response->setJSON(['status' => $device['Status']]);
+    }
 }

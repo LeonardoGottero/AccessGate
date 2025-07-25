@@ -4,7 +4,7 @@ use CodeIgniter\Model;
 class DeviceModel extends Model{
     protected $table = 'devices';
     protected $primaryKey = 'DeviceId';
-    protected $allowedFields = ['device_name', 'device_uid', 'AccountId'];
+    protected $allowedFields = ['device_name', 'device_uid', 'AccountId', 'Status'];
     public function DeviceExists($Deviceuid, $DeviceId, $AccountId){
         return $this->where('device_uid', $Deviceuid)
                     ->where('DeviceId !=', $DeviceId)
