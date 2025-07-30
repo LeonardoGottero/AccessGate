@@ -3,7 +3,7 @@ body{
     overflow-x: hidden;
     margin:0;
     padding: 0;
-    background-image: url('../Images/parallax.jpg');
+    background-image: url('../Images/parallax.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@ body{
 }
 table {
     border-collapse: collapse;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(10, 35, 66, 0.1);
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: #fff;
@@ -22,7 +22,7 @@ table {
     min-width: 80%;
 }
 table thead {
-    background-color: #363535;
+    background-color: #0A2342;
     color: white;
 }
 table th, table td {
@@ -35,7 +35,7 @@ table tbody tr:nth-child(even) {
     background-color: #ffffff;
 }
 table th {
-    background-color: #363535;
+    background-color: #0A2342;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
@@ -47,23 +47,23 @@ table tbody tr:last-child td {
     border-bottom: none;
 }
 table td:first-child {
-    border-left: 5px solid #363535;
+    border-left: 5px solid #0A2342;
 }
 table tbody tr:hover td:first-child {
-    border-left-color: #1a1a2e;
+    border-left-color: #0A2342;
 }
 a{
     text-decoration: none;
 }
 .button {
     font-family: "Roboto", sans-serif;
-    background-color: #1a1a2e;
+    background-color: #11345e;
     color: #ffffff;
     border: none;
     padding: 15px 30px;
     font-size: 18px;
     border-radius: 30px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(10, 35, 66, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -78,7 +78,7 @@ a{
     left: 50%;
     width: 300%;
     height: 300%;
-    background-color: #000000;
+    background-color: #071a2f;
     transition: all 0.3s ease;
     border-radius: 50%;
     z-index: -1;
@@ -88,7 +88,7 @@ a{
     opacity: 0.9;
 }
 .button:hover {
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 20px rgba(10, 35, 66, 0.4);
     transform: translateY(-5px);
 }
 .button:active::after {
@@ -136,9 +136,9 @@ a{
     margin: 10% auto;
     border-radius: 12px;
     text-align: center;
-    background-color: rgba(78, 75, 75, 0.7);
+    background-color: rgba(10, 35, 66, 0.7);
     backdrop-filter: blur(8px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(10, 35, 66, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     padding: 10px 0;
@@ -203,7 +203,7 @@ a{
     width: 96%;
 }
 option{
-    color: #000000;
+    color: #0A2342;
 }
 .logo{
     max-width: 200px;
@@ -313,7 +313,7 @@ option{
     background-color: #eee;
     border-radius: 4px;
     transition: background-color 0.3s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(10, 35, 66, 0.2);
 }
 .checkmark:after {
     content: "";

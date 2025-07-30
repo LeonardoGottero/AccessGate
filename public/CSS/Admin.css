@@ -68,15 +68,15 @@ body::before {
 @keyframes swirlEffect {
     0% {
         transform: scale(1) rotate(0deg);
-        opacity: 0.6; /* Opacidad ligeramente mayor */
+        opacity: 0.6;
     }
     50% {
         transform: scale(1.1) rotate(5deg);
-        opacity: 0.7; /* Opacidad ligeramente mayor */
+        opacity: 0.7;
     }
     100% {
         transform: scale(1) rotate(0deg);
-        opacity: 0.6; /* Opacidad ligeramente mayor */
+        opacity: 0.6;
     }
 }
 
@@ -89,7 +89,6 @@ body::after {
     height: 100%;
     background: repeating-linear-gradient(
         90deg,
-        /* Líneas del pseudo-elemento más visibles */
         rgba(255,255,255,0.05),
         rgba(255,255,255,0.05) 1px,
         transparent 1px,
@@ -103,15 +102,15 @@ body::after {
 @keyframes swirlEffect2 {
     0% {
         transform: scale(1) rotate(0deg);
-        opacity: 0.5; /* Opacidad ligeramente mayor */
+        opacity: 0.5;
     }
     50% {
         transform: scale(1.05) rotate(-3deg);
-        opacity: 0.6; /* Opacidad ligeramente mayor */
+        opacity: 0.6;
     }
     100% {
         transform: scale(1) rotate(0deg);
-        opacity: 0.5; /* Opacidad ligeramente mayor */
+        opacity: 0.5;
     }
 }
 .separator{
@@ -228,7 +227,7 @@ form .btn{
 }
 
 .search__input:hover, .search__input:focus {
-  box-shadow: 0 0 1em #00000013;
+  box-shadow: 0 0 1em #0A234213;
 }
 .search__input:focus {
   outline: none;
@@ -256,11 +255,11 @@ form .btn{
 .botonconfirm {
     align-items: center;
     background-color: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(10, 35, 66, 0.1);
     border-radius: .25rem;
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-shadow: rgba(10, 35, 66, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
-    color: rgba(0, 0, 0, 0.85);
+    color: rgba(10, 35, 66, 0.85);
     cursor: pointer;
     display: inline-flex;
     font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -281,17 +280,17 @@ form .btn{
 }
 .botonconfirm:hover,
 .botonconfirm:focus {
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    color: rgba(0, 0, 0, 0.65);
+    border-color: rgba(10, 35, 66, 0.15);
+    box-shadow: rgba(10, 35, 66, 0.1) 0 4px 12px;
+    color: rgba(10, 35, 66, 0.65);
 }
 .botonconfirm:hover {
     transform: translateY(-1px);
 }
 .botonconfirm:active {
     background-color: #F0F0F1;
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-    color: rgba(0, 0, 0, 0.65);
+    border-color: rgba(10, 35, 66, 0.15);
+    box-shadow: rgba(10, 35, 66, 0.06) 0 2px 4px;
+    color: rgba(10, 35, 66, 0.65);
     transform: translateY(0);
 }

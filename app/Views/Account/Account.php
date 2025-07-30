@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
     <style>
          .parallax{
-             background-image: url("<?= base_url('Images/parallax.jpg') ?>");
+             background-image: url("<?= base_url('Images/parallax.png') ?>");
              max-height: 2000px;
              background-attachment: fixed;
              background-position: center;
