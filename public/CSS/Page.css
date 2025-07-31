@@ -245,9 +245,6 @@ td a{
     cursor: pointer;
     margin-top: 100px;
 }
-.content .custom-button:before {
-    background-color: #434446;
-}
 table {
     border-collapse: collapse;
     box-shadow: 0 5px 15px rgba(10, 35, 66, 0.1);
