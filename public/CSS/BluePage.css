@@ -16,7 +16,7 @@ td a{
     text-decoration: underline;
 }
 .parallax{
-    background-image: url('../Images/parallax.png');
+    background-image: url('../Images/BlueParallax.png');
     max-height: 2000px; 
     background-attachment: fixed;
     background-position: center;
