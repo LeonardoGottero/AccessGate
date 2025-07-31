@@ -1,32 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const changeThemeBtn = document.getElementById('change-theme-btn');
-    const themeStyleLink = document.getElementById('theme-style');
-    if (!changeThemeBtn || !themeStyleLink) {
-        console.error("No se encontraron los elementos para cambiar el tema.");
-        return;
-    }
-    const applyTheme = (themeName) => {
-        const currentHref = themeStyleLink.getAttribute('href');
-        let newHref;
-
-        if (currentHref.includes('BluePage.css')) {
-            newHref = currentHref.replace('BluePage.css', themeName);
-        } else {
-            newHref = currentHref.replace('Page.css', themeName);
+    const pageStyleLink = document.getElementById('page-theme-style');
+    const formStyleLink = document.getElementById('form-theme-style');
+    const basePath = 'CSS/';
+    const themes = {
+        blue: {
+            page: basePath + 'BluePage.css',
+            form: basePath + 'BlueForm.css'
+        },
+        black: {
+            page: basePath + 'Page.css',
+            form: basePath + 'Form.css'
         }
-        themeStyleLink.setAttribute('href', newHref);
-        localStorage.setItem('selected_theme', themeName);
     };
-    const savedTheme = localStorage.getItem('selected_theme');
+    const setTheme = (themeName) => {
+        if (themes[themeName]) {
+            pageStyleLink.setAttribute('href', themes[themeName].page);
+            formStyleLink.setAttribute('href', themes[themeName].form);
+            localStorage.setItem('theme_preference', themeName);
+        }
+    };
+    const savedTheme = localStorage.getItem('theme_preference');
     if (savedTheme) {
-        applyTheme(savedTheme);
+        setTheme(savedTheme);
+    } else {
+        setTheme('blue');
     }
     changeThemeBtn.addEventListener('click', () => {
-        const currentTheme = themeStyleLink.getAttribute('href');
-        if (currentTheme.includes('BluePage.css')) {
-            applyTheme('Page.css');
-        } else {
-            applyTheme('BluePage.css');
-        }
+        const currentTheme = localStorage.getItem('theme_preference') || 'blue';
+        const newTheme = currentTheme === 'blue' ? 'black' : 'blue';
+        setTheme(newTheme);
     });
 });

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error en el pago</title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
+    <link id="form-theme-style" rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png') ?>">
 </head>
 <body>
@@ -27,5 +27,6 @@
             </button>
         </a>
     </div>
+    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
+    <link id="form-theme-style" rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Login_logo.png') ?>">
 </head>
 <body>
@@ -32,5 +32,6 @@
             <button class="button">Registrarse</button>
         </a>
     </div>
+    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
 </body>
 </html>

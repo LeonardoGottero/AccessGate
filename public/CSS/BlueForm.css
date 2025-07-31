@@ -3,7 +3,7 @@ body{
     overflow-x: hidden;
     margin:0;
     padding: 0;
-    background-image: url('../Images/parallax.png');
+    background-image: url('../Images/BlueParallax.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
