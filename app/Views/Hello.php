@@ -6,19 +6,6 @@
     <title>Bienvenido</title>
     <link rel="stylesheet" href="<?= base_url('CSS/Page.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
-    <style>
-         .parallax{
-             background-image: url("<?= base_url('Images/parallax.png') ?>");
-             max-height: 2000px; 
-             background-attachment: fixed;
-             background-position: center;
-             background-repeat: no-repeat;
-             background-size: cover;
-             padding: 10%;
-             padding-top: 30%;
-             padding-bottom: 20%;
-         }
-    </style>
 </head>
 <body>
     <nav class="navbar">
