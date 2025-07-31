@@ -35,7 +35,7 @@
             </div>
         </div>
     </nav>
-    <div class="parallax">
+    <div class="helloparallax">
         <div class="bienvenido">
             <center>
                 <h1>Datos del Usuario</h1>

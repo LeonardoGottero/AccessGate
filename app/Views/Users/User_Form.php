@@ -61,7 +61,7 @@
             </form>
         </div>
     </center>
-    <script src="<?= base_url('Scripts/Form.js') ?>"></script>
     <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
+    <script src="<?= base_url('Scripts/Form.js') ?>"></script>
 </body>
 </html>

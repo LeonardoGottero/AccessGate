@@ -57,6 +57,14 @@
     <?php endif; ?>
     </div>
     <div class="parallax"></div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Cerrar Sesión</h1>
+            <p>¿Estas seguro?</p>
+            <a href="<?= site_url('Logout') ?>"><button class="custom-button">Cerrar</button></a>
+        </div>
+    </div>
     <footer class="footer">
         <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contactanos</a></p>
     </footer>
