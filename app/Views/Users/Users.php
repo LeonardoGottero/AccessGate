@@ -4,21 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Page.css') ?>">
+    <link id="theme-style" rel="stylesheet" href="<?= base_url('CSS/Page.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
-    <style>
-         .parallax{
-             background-image: url("<?= base_url('Images/parallax.png') ?>");
-             max-height: 2000px; 
-             background-attachment: fixed;
-             background-position: center;
-             background-repeat: no-repeat;
-             background-size: cover;
-             padding: 10%;
-             padding-top: 20%;
-             padding-bottom: 20%;
-         }
-    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -34,6 +21,7 @@
                 <a href="<?= site_url('Users') ?>">Usuarios</a>
                 <a href="<?= site_url('Logs') ?>">Registros</a>
                 <a href="<?= site_url('Shop') ?>">Tienda</a>
+                <a id="change-theme-btn" style="cursor: pointer;">Cambiar Estilo</button>
                 <a id="myBtn" style="cursor: pointer;">Cerrar sesion</a>
             </div>
         </div>
@@ -86,5 +74,6 @@
         <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contactanos</a></p>
     </footer>
     <script src="<?= base_url('Scripts/Pag.js') ?>"></script>
+    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
 </body>
 </html>
