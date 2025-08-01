@@ -36,7 +36,7 @@
     </div>
     <div class="helloparallax">
         <div class="bienvenido">
-            <h1>Bienvenido, <?= session()->get('accountname') ?></h1>
+            <h1>Bienvenido de nuevo, <?= session()->get('accountname') ?></h1><br>
             <p>¿Que vas a hacer hoy?</p>
             <a href="<?= site_url('Users') ?>">
                 <div class="banner" style="background-image: url('<?= base_url('Images/Users.jpg') ?>');">
