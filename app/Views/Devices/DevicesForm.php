@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($Device) ? "Actualizar dispositivo" : "Crear dispositivo"; ?></title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
+    <link id="form-theme-style" rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png') ?>">
 </head>
 <body>
@@ -73,5 +73,6 @@
         </div>
     </center>
     <script src="<?= base_url('Scripts/Form.js') ?>"></script>
+    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
 </body>
 </html>

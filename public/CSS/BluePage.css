@@ -5,14 +5,14 @@ body {
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000;
+    background-color: #0A2342;
 }
 a {
     color: white;
     text-decoration: none;
 }
 td a{
-    color: black;
+    color: #0A2342;
     text-decoration: underline;
 }
 .addiv{
@@ -27,7 +27,7 @@ td a{
     margin-left: 20px;
 }
 .parallax{
-    background-image: url('../Images/Parallax.jpg');
+    background-image: url('../Images/BlueParallax.png');
     max-height: 2000px; 
     background-attachment: fixed;
     background-position: center;
@@ -38,7 +38,7 @@ td a{
     padding-bottom: 20%;
 }
 .helloparallax{
-    background-image: url('../Images/Parallax.jpg');
+    background-image: url('../Images/BlueParallax.png');
     max-height: 2000px; 
     background-attachment: fixed;
     background-position: center;
@@ -49,7 +49,7 @@ td a{
     padding-bottom: 20%;
 }
 .navbar {
-    background-color: #867f7f91;
+    background-color: #859ad391;
     color: white;
     padding-right: 15px;
     display: flex;
@@ -81,7 +81,7 @@ td a{
     margin-left: 20px;
 }
 .footer {
-    background-color: #000000;
+    background-color: #0A2342;
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -96,13 +96,13 @@ td a{
 }
 .custom-button {
     font-family: "Roboto", sans-serif;
-    background-color: #1a1a2e;
+    background-color: #11345e;
     color: #ffffff;
     border: none;
     padding: 15px 30px;
     font-size: 18px;
     border-radius: 30px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(10, 35, 66, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -116,7 +116,7 @@ td a{
     left: 50%;
     width: 300%;
     height: 300%;
-    background-color: #000000;
+    background-color: #071a2f;
     transition: all 0.3s ease;
     border-radius: 50%;
     z-index: -1;
@@ -127,7 +127,7 @@ td a{
     opacity: 0.9;
 }
 .custom-button:hover {
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 20px rgba(10, 35, 66, 0.4);
     transform: translateY(-5px);
 }
 .custom-button:active::after {
@@ -178,7 +178,7 @@ td a{
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(10, 35, 66, 0.4);
     border-radius: 5px;
 }
 .modal-content {
@@ -220,8 +220,8 @@ td a{
     cursor: pointer;
 }
 .content{
-    background-color: #000000;
-    color: #000000;
+    background-color: #0A2342;
+    color: #ffffff;
     width: 100%;
     height: auto;
     padding-bottom: 10px;
@@ -278,12 +278,9 @@ td a{
     cursor: pointer;
     margin-top: 100px;
 }
-.content .custom-button:before {
-    background-color: #434446;
-}
 table {
     border-collapse: collapse;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(10, 35, 66, 0.1);
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: #fff;
@@ -291,9 +288,10 @@ table {
     overflow: hidden;
     max-width: 100%;
     min-width: 80%;
+    color: #000000;
 }
 table thead {
-    background-color: #363535;
+    background-color: #11345e;
     color: white;
 }
 table th, table td {
@@ -306,7 +304,7 @@ table tbody tr:nth-child(even) {
     background-color: #ffffff;
 }
 table th {
-    background-color: #363535;
+    background-color: #11345e;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
@@ -318,15 +316,15 @@ table tbody tr:last-child td {
     border-bottom: none;
 }
 table td:first-child {
-    border-left: 5px solid #363535;
+    border-left: 5px solid #11345e;
 }
 table tbody tr:hover td:first-child {
-    border-left-color: #1a1a2e;
+    border-left-color: #11345e;
 }
 .btn-icon-m {
     width: 50px;
     height: 50px;
-    background-color: #333;
+    background-color: #11345e;
     border: none;
     border-radius: 50%;
     padding: 5px;
@@ -337,12 +335,12 @@ table tbody tr:hover td:first-child {
     height: auto;
 }
 .btn-icon-m:hover {
-    background-color: #444;
+    background-color: #0A2342;
 }
 .accounttable .btn-icon {
     width: 30px;
     height: 30px;
-    background-color: #333;
+    background-color: #11345e;
     border: none;
     border-radius: 50%;
     padding: 5px;
@@ -351,7 +349,7 @@ table tbody tr:hover td:first-child {
 .btn-icon-e {
     width: 50px;
     height: 50px;
-    background-color: #333;
+    background-color: #11345e;
     border: none;
     border-radius: 50%;
     padding: 5px;
@@ -365,7 +363,7 @@ table tbody tr:hover td:first-child {
     background-color: #c40000;
 }
 .bienvenido{
-    background-color: #000000;
+    background-color: #0A2342;
     color: #ffffff;
     text-align: center;
     padding: 10px;
@@ -421,7 +419,6 @@ table tbody tr:hover td:first-child {
 }
 .banner-text p{
     width: 90%;
-    font-size: 1.2em;
 }
 .accounttable {
     max-width: 100%;
@@ -434,12 +431,12 @@ table tbody tr:hover td:first-child {
     word-break: break-all;
 }
 .accounttable th {
-    background-color: #1a1a2e;
+    background-color: #11345e;
     color: white;
     font-weight: bold;
 }
 .accounttable th:hover {
-    background-color: #000;
+    background-color: #071a2f;
 }
 .accounttable tr:nth-child(even) {
     background-color: #f2f2f2;
@@ -456,7 +453,7 @@ table tbody tr:hover td:first-child {
     font-size: 1em;
     font-weight: 400;
     line-height: 1.5em;
-    color: #452c2c;
+    color: #f2f8f9;
 }
 .small-desc {
     font-size: 1em;
@@ -471,7 +468,7 @@ table tbody tr:hover td:first-child {
     overflow: hidden;
     top: 0;
     right: 0;
-    background: linear-gradient(135deg, #80868d, #1a1b1d);
+    background: linear-gradient(135deg, #80868d, #0A2342);
     border-radius: 0 4px 0 32px;
 }
 .go-arrow {
@@ -501,7 +498,7 @@ table tbody tr:hover td:first-child {
     z-index: -1;
     top: -16px;
     right: -16px;
-    background: linear-gradient(135deg, #2e2f31, #131518);
+    background: linear-gradient(135deg, #1a3556, #0A2342);
     height: 32px;
     width: 32px;
     border-radius: 32px;
@@ -518,7 +515,7 @@ table tbody tr:hover td:first-child {
 }
 .card .card-title {
     font-family: "Roboto", sans-serif;
-    color: #262626;
+    color: #000000;
     font-size: 1.5em;
     line-height: normal;
     font-weight: 700;
@@ -573,7 +570,7 @@ table tbody tr:hover td:first-child {
     margin-right: 10px;
 }
 .dropbtn {
-    background-color: #1a1a2e;
+    background-color: #0A2342;
     color: #ffffff;
     padding: 10px 20px;
     font-size: 16px;
@@ -585,9 +582,9 @@ table tbody tr:hover td:first-child {
 }
 .dropdown-content {
     position: absolute;
-    background-color: #1a1a2e;
+    background-color: #0A2342;
     min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px rgba(10, 35, 66, 0.2);
     z-index: 1;
     top: 0px;
     right: 0;
@@ -604,7 +601,7 @@ table tbody tr:hover td:first-child {
     display: block;
 }
 .dropdown-content a:hover {
-    background-color: #333;
+    background-color: #071a2f;
     border-radius: 5px;
 }
 .dropdown:hover .dropdown-content {
@@ -613,7 +610,7 @@ table tbody tr:hover td:first-child {
     transform: translateY(0);
 }
 .dropdown:hover .dropbtn {
-    background-color: #333;
+    background-color: #071a2f;
 }
 .shop-container{
     display: flex;

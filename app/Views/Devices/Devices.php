@@ -4,20 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dispositivos</title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Page.css') ?>">
+    <link id="page-theme-style" rel="stylesheet" href="<?= base_url('CSS/Page.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
     <style>
-        .parallax{
-            background-image: url("<?= base_url('Images/parallax.jpg') ?>");
-            max-height: 2000px;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 10%;
-            padding-top: 20%;
-            padding-bottom: 20%;
-        }
         .status-dot {
             height: 12px;
             width: 12px;
@@ -50,6 +39,7 @@
                 <a href="<?= site_url('Users') ?>">Usuarios</a>
                 <a href="<?= site_url('Logs') ?>">Registros</a>
                 <a href="<?= site_url('Shop') ?>">Tienda</a>
+                <a id="change-theme-btn" style="cursor: pointer;">Cambiar Estilo</button>
                 <a id="myBtn" style="cursor: pointer;">Cerrar sesion</a>
             </div>
         </div>
@@ -58,6 +48,9 @@
         <div class="content">
             <center>
                 <h1 class="Hello-title">Dispositivos</h1>
+                <div class="addiv">
+                    <a href="<?= base_url('/Devices/Create'); ?>"><button class="custom-button">Añadir</button></a>
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -94,12 +87,11 @@
                             </td>
                             <td><?= $Device['device_uid'] ?></td>
                             <td><a href="<?= base_url('/Devices/Edit/'.$Device['DeviceId']); ?>"><button class="btn-icon-m"><img height="30px" src="<?= base_url('Images/Edit.png')?>"></button></a></td>
-                            <td><a href="<?= site_url('/Devices/Delete/'.$Device['DeviceId']) ?>" onclick="return confirm('¿Estás seguro de que deseas borrar este usuario?')"><button class="btn-icon-e"><img src="<?= base_url('Images/Delete.png')?>"></button></a></td>
+                            <td><a href="<?= site_url('/Devices/Delete/'.$Device['DeviceId']) ?>" onclick="return confirm('¿Estás seguro de que deseas borrar este dispositivo?')"><button class="btn-icon-e"><img src="<?= base_url('Images/Delete.png')?>"></button></a></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <a href="<?= base_url('/Devices/Create'); ?>"><button class="custom-button">Añadir Dispositivos</button></a>
             </center>
         </div>
     <div class="parallax"></div>
@@ -176,5 +168,6 @@
         });
     </script>
     <script src="<?= base_url('Scripts/Pag.js') ?>"></script>
+    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
 </body>
 </html>
