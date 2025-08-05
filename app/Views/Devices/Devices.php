@@ -48,6 +48,9 @@
         <div class="content">
             <center>
                 <h1 class="Hello-title">Dispositivos</h1>
+                <div class="addiv">
+                    <a href="<?= base_url('/Devices/Create'); ?>"><button class="custom-button">Añadir</button></a>
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -84,12 +87,11 @@
                             </td>
                             <td><?= $Device['device_uid'] ?></td>
                             <td><a href="<?= base_url('/Devices/Edit/'.$Device['DeviceId']); ?>"><button class="btn-icon-m"><img height="30px" src="<?= base_url('Images/Edit.png')?>"></button></a></td>
-                            <td><a href="<?= site_url('/Devices/Delete/'.$Device['DeviceId']) ?>" onclick="return confirm('¿Estás seguro de que deseas borrar este usuario?')"><button class="btn-icon-e"><img src="<?= base_url('Images/Delete.png')?>"></button></a></td>
+                            <td><a href="<?= site_url('/Devices/Delete/'.$Device['DeviceId']) ?>" onclick="return confirm('¿Estás seguro de que deseas borrar este dispositivo?')"><button class="btn-icon-e"><img src="<?= base_url('Images/Delete.png')?>"></button></a></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <a href="<?= base_url('/Devices/Create'); ?>"><button class="custom-button">Añadir Dispositivos</button></a>
             </center>
         </div>
     <div class="parallax"></div>

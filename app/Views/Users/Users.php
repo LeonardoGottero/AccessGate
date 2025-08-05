@@ -30,14 +30,17 @@
     <div class="content">
         <center>
             <h1 class="Hello-title">Usuarios</h1>
-            <form action="<?= site_url('/Users/Search')?>" method="Post">
-                <div class="search-container">
-                    <input type="text" name="search" placeholder="Buscar...">
-                    <button type="submit">
-                        <img src="https://img.icons8.com/material-outlined/24/000000/search.png" alt="Buscar">
-                    </button>
-                </div>
-            </form>
+            <div class="addiv">
+                <form action="<?= site_url('/Users/Search')?>" method="Post">
+                    <div class="search-container">
+                        <input type="text" name="search" placeholder="Buscar...">
+                        <button type="submit">
+                            <img src="https://img.icons8.com/material-outlined/24/000000/search.png" alt="Buscar">
+                        </button>
+                    </div>
+                </form>
+                <a href="<?= base_url('/Users/Create'); ?>"><button class="custom-button">Añadir</button></a>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -58,7 +61,6 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <a href="<?= base_url('/Users/Create'); ?>"><button class="custom-button">Añadir Usuario</button></a>
         </center>
     </div>
     <div class="parallax"></div>
