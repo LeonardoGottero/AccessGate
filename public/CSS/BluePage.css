@@ -182,7 +182,7 @@ td a{
     border-radius: 5px;
 }
 .modal-content {
-    background-color: #554d4dc5;
+    background-color: #6286b6c5;
     color: #ffffff;
     margin: 10% auto;
     padding: 20px;
@@ -693,4 +693,16 @@ table tbody tr:hover td:first-child {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+body::-webkit-scrollbar {
+    width: 12px;
+}
+body::-webkit-scrollbar-track {
+    background: #a4a4a4;
+    border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #0A2342;
+    border-radius: 10px;
+    border: 2px solid #a4a4a4;
 }
