@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Commands;
-
 use CodeIgniter\CLI\BaseCommand;
 use CodeIgniter\CLI\CLI;
 use App\Models\AccountModel;
-
 class CleanupAccounts extends BaseCommand{
     protected $group       = 'cleanup';
     protected $name        = 'cleanup:accounts';
@@ -19,7 +16,6 @@ class CleanupAccounts extends BaseCommand{
             ->where('is_active', 0)
             ->where('token_created_at <', $threeHoursAgo)
             ->findAll();
-
         if (empty($expiredAccounts)) {
             CLI::write('No expired inactive accounts found.', 'green');
             return;

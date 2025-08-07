@@ -33,7 +33,7 @@ class AdminController extends BaseController{
         $commands = Services::commands();
         $cleanupCommand = new CleanupAccounts($logger, $commands);
         $cleanupCommand->run([]);
-        return redirect()->back()->with('message', 'Se ha intentado ejecutar la limpieza de cuentas expiradas manualmente.');
+        return redirect()->back()->with('message', 'Se ha ejecutado la limpieza de cuentas expiradas manualmente.');
     }
     public function RunAccountCleanupAuto(){
         $logger = Services::logger();

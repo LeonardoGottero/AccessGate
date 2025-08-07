@@ -30,10 +30,10 @@ class PurchaseModel extends Model
 
     public function getPurchasesByAccountId($AccountId)
     {
-        return $this->select('purchases.*, products.name as product_name') // Select purchase fields and product name
-                    ->join('products', 'products.ProductId = purchases.ProductId') // Join with the products table
-                    ->where('purchases.AccountId', $AccountId) // Filter by account ID
-                    ->orderBy('purchases.created_at', 'DESC') // Order by latest purchase first
-                    ->findAll(); // Get all results
+        return $this->select('purchases.*, products.name as product_name')
+                    ->join('products', 'products.ProductId = purchases.ProductId')
+                    ->where('purchases.AccountId', $AccountId)
+                    ->orderBy('purchases.created_at', 'DESC')
+                    ->findAll();
     }
 }
