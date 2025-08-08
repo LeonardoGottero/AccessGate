@@ -23,12 +23,12 @@
                         <a href="<?= site_url('Users') ?>">Usuarios</a>
                         <a href="<?= site_url('Logs') ?>">Registros</a>
                         <a href="<?= site_url('Shop/History') ?>">Historial de compras</a>
-                        <a id="change-theme-btn" style="cursor: pointer;">Cambiar Estilo</button>
-                        <a id="myBtn" style="cursor: pointer;">Cerrar sesion</a>
+                        <a id="change-theme-btn" style="cursor: pointer;">Cambiar estilo</button>
+                        <a id="myBtn" style="cursor: pointer;">Cerrar sesión</a>
                     </div>
                 </div>
             <?php else: ?>
-                <li><a href="<?= site_url('Login') ?>"><button class="custom-button">Iniciar Sesión</button></a></li>
+                <li><a href="<?= site_url('Login') ?>"><button class="custom-button">Iniciar sesión</button></a></li>
             <?php endif; ?>
         </ul>
     </nav>
@@ -48,13 +48,13 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h1>Cerrar Sesión</h1>
-            <p>¿Estas seguro?</p>
+            <h1>Cerrar sesión</h1>
+            <p>¿Estás seguro?</p>
             <a href="<?= site_url('Logout') ?>"><button class="custom-button">Cerrar</button></a>
         </div>
     </div>
     <footer class="footer">
-        <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contactanos</a></p>
+        <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contáctanos</a></p>
     </footer>
     <script src="<?= base_url('Scripts/Pag.js') ?>"></script>
     <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>

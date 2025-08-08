@@ -31,8 +31,8 @@
             <div class="modal-content">
                 <span class="closeTwoFa">&times;</span>
                 <h1>Configurar 2FA</h1>
-                <p>¿Estás seguro que deseas Configurar la autenticación de dos factores?</p>
-                <p>Este proceso eliminara el anterior 2FA.</p>
+                <p>¿Estás seguro que deseas configurar la autenticación de dos factores?</p>
+                <p>Este proceso eliminará el anterior 2FA.</p>
                 <a href="<?= site_url('setup-2fa') ?>"><button class="custom-button">Continuar</button></a>
             </div>
         </div>

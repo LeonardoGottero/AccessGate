@@ -2,15 +2,10 @@
 <?= $this->section('title') ?>
     <?= $User['name']." ".$User['surname']; ?>
 <?= $this->endSection() ?>
-<?= $this->section('styles') ?>
-    <style>
-        
-    </style>
-<?= $this->endSection() ?>
 <?= $this->section('content') ?>
     <div class="helloparallax">
         <div class="bienvenido">
-            <h1>Datos del Usuario</h1>
+            <h1>Datos del usuario</h1>
             <table class="accounttable">
                 <tr>
                     <th>Nombre del usuario</th>
@@ -25,7 +20,7 @@
                     <td><?= $User['tag'] ?></td>
                 </tr>
                 <tr>
-                    <th>Ultimo registro</th>  
+                    <th>Último registro</th>  
                     <td><?php if(isset($LastLog)){ echo $LastLog['time']; }elseif(!isset($LastLog)){ echo "Hace más de 7 dias o nunca"; } ?></td>
                 </tr>
             </table>
@@ -49,7 +44,7 @@
             <?php endif; ?>
             <p><?= session()->getFlashdata('message') ?><?= session()->getFlashdata('error') ?></p>
             <a href="<?= base_url('Users/Edit/'.$User['UserId']); ?>"><button class="custom-button">Editar Usuario</button></a>
-            <a href="<?= site_url('Users/Delete/'.$User['UserId']) ?>" onclick="return confirm('¿Estás seguro de que deseas borrar este usuario?')"><button class="custom-button">Borrar Usuario</button></a>
+            <a href="<?= site_url('Users/Delete/'.$User['UserId']) ?>" onclick="return confirm('¿Estás seguro de que deseas borrar este usuario?')"><button class="custom-button">Borrar usuario</button></a>
         </div>
     </div>
 <?= $this->endSection() ?>

@@ -1,6 +1,6 @@
 <?= $this->extend('Layouts/Form') ?>
 <?= $this->section('title') ?>
-    Confirmación de Eliminacion de usuario
+    Confirmación de eliminación de usuario
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
     <div class="card">

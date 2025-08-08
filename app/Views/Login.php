@@ -20,7 +20,7 @@
         </form>
         <p>¿Olvidaste tu contraseña?</p>
         <a href="<?= base_url('/Password/ShowRecoveryForm') ?>">
-            <button class="button">Recuperar Contraseña</button>
+            <button class="button">Recuperar contraseña</button>
         </a>
         <p>¿No tienes una cuenta?</p>
         <a href="<?= site_url('/Register') ?>">

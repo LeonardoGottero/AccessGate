@@ -5,7 +5,7 @@
 <?= $this->section('content') ?>
     <div class="card">
         <h1>Verificación de inicio de sesión</h1>
-        <p>Por favor, ingrese el código de 6 digitos de 2FA de su aplicación de autenticación.</p>
+        <p>Por favor, ingrese el código de 6 dígitos de 2FA de su aplicación de autenticación.</p>
         <p><?= session()->getFlashdata('error') ?></p>
         <form method="post" action="<?= site_url('Process2FA') ?>">
             <div class="form-control">

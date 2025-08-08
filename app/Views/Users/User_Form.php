@@ -35,7 +35,7 @@
                 <input type="text" class="input input-alt" id="tag" name="tag" placeholder="Tag" value="<?= isset($User) ? $User['tag'] : '' ?>" required>
                 <span class="input-border input-border-alt"></span>
             </div>
-            <p>Limitar Horario</p>
+            <p>Limitar horario</p>
             <label class="switch">
                 <input type="checkbox" id="time" name="time" onclick="toggletime()" <?= isset($User) && $Check ? 'checked' : '' ?>>
                 <span class="slider"></span>

@@ -10,7 +10,7 @@
     </a>
     <div class="card">
         <h1 style="color: #dc3545;">¡Error en el proceso de pago!</h1>
-        <p>Por favor intenta nuevamente o contacta con soporte.</p>
+        <p>Por favor intenta nuevamente o contactá con soporte.</p>
         <?php if (session()->has('error')): ?>
             <div class="error-details">
                 <p>Detalles técnicos: <?= session('error') ?></p>

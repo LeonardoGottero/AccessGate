@@ -9,7 +9,7 @@
     <div class="card">
         <h1>Cambiar Contraseña</h1>
         <p>Recuerde que su contraseña:</p>
-        <p>-Debe tener mas de 8 caracteres y menos de 20</p>
+        <p>-Debe tener más de 8 caracteres y menos de 20</p>
         <p>-No debe ser igual que la anterior</p>
         <form action="<?= site_url('/Account/ChangePassword') ?>" method="post">
         <?= csrf_field() ?>
