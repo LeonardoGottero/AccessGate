@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial="width=device-width, initial-scale=1.0">
-    <title>Configurar 2FA</title>
-    <link id="form-theme-style" rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
-    <link rel="shortcut icon" href="<?= base_url('Images/Login_logo.png') ?>">
-</head>
-<body>
+<?= $this->extend('Layouts/Form') ?>
+<?= $this->section('title') ?>
+    Configurar 2FA
+<?= $this->endSection() ?>
+<?= $this->section('content') ?>
     <div class="card">
         <h1>Configurar 2FA</h1>
         <h2>Paso 1: Escanea el Código QR</h2>
@@ -28,6 +23,4 @@
         </form>
         <p style="margin-top: 20px;">Puedes cambiar el 2FA en la configuración de tu perfil en cualquier momento.</p>
     </div>
-    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
-</body>
-</html>
+<?= $this->endSection() ?>

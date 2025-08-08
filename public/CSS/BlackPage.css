@@ -549,7 +549,7 @@ table tbody tr:hover td:first-child {
 .search-container {
     position: relative;
     width: 300px;
-    margin: 10px;
+    margin: 10px auto;
 }
 .search-container input[type="text"] {
     width: 100%;

@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprar <?= $Product['name'] ?></title>
-    <link id="form-theme-style" rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
-    <link rel="shortcut icon" href="<?= base_url('Images/Logo.png') ?>">
-</head>
-<body>
+<?= $this->extend('Layouts/Form') ?>
+<?= $this->section('title') ?>
+    Comprar <?= $Product['name'] ?>
+<?= $this->endSection() ?>
+<?= $this->section('content') ?>
     <button class="back-button" onClick="history.back();">
         <span>« Volver</span>
     </button>
@@ -49,6 +44,8 @@
             <button type="submit" class="button">Pagar con PayPal</button>
         </form>
     </div>
+<?= $this->endSection() ?>
+<?= $this->section('scripts') ?>
     <script>
         document.getElementById('province').addEventListener('change', function() {
             var provinceId = this.value;
@@ -75,6 +72,4 @@
             }
         });
     </script>
-    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
-</body>
-</html>
+<?= $this->endSection() ?>

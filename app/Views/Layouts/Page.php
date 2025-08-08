@@ -6,7 +6,7 @@
     <title><?= $this->renderSection('title') ?></title>
     <link id="page-theme-style" rel="stylesheet" href="<?= base_url('CSS/BlackPage.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
-    <?= $this->renderSection('Style') ?>
+    <?= $this->renderSection('styles') ?>
 </head>
 <body>
     <nav class="navbar">
