@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprar</title>
-    <link id="page-theme-style" rel="stylesheet" href="<?= base_url('CSS/Page.css') ?>">
+    <link id="page-theme-style" rel="stylesheet" href="<?= base_url('CSS/BlackPage.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
 </head>
 <body>
