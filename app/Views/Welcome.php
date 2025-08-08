@@ -24,42 +24,40 @@
     </nav>
     <div class="parallax"></div>
     <div class="content">
-        <center>
-            <h1 class="Hello-title">¡Bienvenido a la página de accessgate!</h1>
-            <div class="card">
-                <p class="card-title">
-                    Nos complace ofrecerte una solución eficiente y segura para controlar el acceso a tu empresa.
-                </p>
-                <a href="<?= site_url('Login') ?>">
-                    <div class="go-corner">
-                        <div class="go-arrow">→</div>
-                    </div>
-                </a>
-            </div>
-            <div class="card">
-                <p class="card-title">
-                    Con nuestro sistema automatizado basado en tecnología RFID, podrás gestionar el acceso de manera ágil, garantizando la seguridad de tus instalaciones y el seguimiento detallado de entradas y salidas.
-                </p>
-                <a href="<?= site_url('Login') ?>">
-                    <div class="go-corner">
-                        <div class="go-arrow">→</div>
-                    </div>
-                </a>
-            </div>
-            <div class="card">
-                <p class="card-title">
-                A través de nuestra plataforma, tendrás acceso a todos los registros en tiempo real, optimizando la gestión de tu equipo y proporcionando una experiencia sin complicaciones.
-                </p>
-                <a href="<?= site_url('Login') ?>">
-                    <div class="go-corner">
-                        <div class="go-arrow">→</div>
-                    </div>
-                </a>
-            </div>
-            <h2 class="Hello-title">¡Gracias por confiar en nosotros para llevar la seguridad de tu empresa al siguiente nivel!</h2>
-            <h2 class="Hello-title">Si no posees uno de nuestros dispositivos, compra uno aquí</h2>
-            <a href="<?= site_url('Shop') ?>"><button class="custom-button">Tienda</button></a>
-        </center>
+        <h1 class="Hello-title">¡Bienvenido a la página de accessgate!</h1>
+        <div class="card">
+            <p class="card-title">
+                Nos complace ofrecerte una solución eficiente y segura para controlar el acceso a tu empresa.
+            </p>
+            <a href="<?= site_url('Login') ?>">
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <p class="card-title">
+                Con nuestro sistema automatizado basado en tecnología RFID, podrás gestionar el acceso de manera ágil, garantizando la seguridad de tus instalaciones y el seguimiento detallado de entradas y salidas.
+            </p>
+            <a href="<?= site_url('Login') ?>">
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <p class="card-title">
+            A través de nuestra plataforma, tendrás acceso a todos los registros en tiempo real, optimizando la gestión de tu equipo y proporcionando una experiencia sin complicaciones.
+            </p>
+            <a href="<?= site_url('Login') ?>">
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </a>
+        </div>
+        <h2 class="Hello-title">¡Gracias por confiar en nosotros para llevar la seguridad de tu empresa al siguiente nivel!</h2>
+        <h2 class="Hello-title">Si no posees uno de nuestros dispositivos, compra uno aquí</h2>
+        <a href="<?= site_url('Shop') ?>"><button class="custom-button">Tienda</button></a>
     </div>
     <div class="parallax"></div>
     <footer class="footer">
