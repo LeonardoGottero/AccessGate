@@ -15,6 +15,39 @@ td a{
     color: black;
     text-decoration: underline;
 }
+.addiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5px;
+}
+.addiv .custom-button{
+    margin-left: 20px;
+}
+.parallax{
+    background-image: url('../Images/BlackParallax.jpg');
+    max-height: 2000px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10%;
+    padding-top: 15%;
+    padding-bottom: 20%;
+}
+.helloparallax{
+    background-image: url('../Images/BlackParallax.jpg');
+    max-height: 2000px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10%;
+    padding-top: 30%;
+    padding-bottom: 20%;
+}
 .navbar {
     background-color: #867f7f91;
     color: white;
@@ -238,6 +271,7 @@ td a{
 }
 .content table{
     margin: 0 10%;
+    margin-bottom: 10px;
 }
 .text-container a {
     align-self: flex-end;
@@ -250,6 +284,7 @@ td a{
 table {
     border-collapse: collapse;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: auto;
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: #fff;
@@ -257,6 +292,7 @@ table {
     overflow: hidden;
     max-width: 100%;
     min-width: 80%;
+    margin: auto;
 }
 table thead {
     background-color: #363535;
@@ -341,37 +377,65 @@ table tbody tr:hover td:first-child {
     font-family: "Roboto", sans-serif;
 }
 .banner {
-    align-content: center;
     height: 250px;
     width: 250px;
-    padding: 5px;
     margin-bottom: 5px;
     position: relative;
-    transition: left 0.3s linear;
-    background-size: cover;
-    background-position: left;
-    bottom: 0px;
     display: inline-block;
     border-radius: 10px;
-    animation: earthRotate 30s linear 0s infinite;
+    overflow: hidden;
+    cursor: pointer;
+}
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit; 
+    background-size: cover;
+    background-position: center;
+    transition: filter 0.3s ease-in-out;
+}
+.banner-text {
+    position: absolute;
+    top: -10px;
+    left: -13px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out;
 }
-@keyframes earthRotate {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 400px 0;
-    }
+.banner:hover::before {
+    filter: blur(5px);
 }
-.banner p{
-    background-color: #56575a6e;
-    backdrop-filter: blur(2px);
-    border-radius: 5px;
+.banner:hover .banner-text {
+    opacity: 1;
+}
+.banner-text p{
+    width: 90%;
+    font-size: 1.2em;
+}
+.chart-container {
+    padding: 20px;
+    height: 40vh;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 .accounttable {
     max-width: 100%;
     font-family: "Roboto", sans-serif;
+    margin-bottom: 20px;
 }
 .accounttable th, .accounttable td {
     padding: 10px;
@@ -485,11 +549,11 @@ table tbody tr:hover td:first-child {
 .search-container {
     position: relative;
     width: 300px;
-    margin: 10px;
+    margin: 10px auto;
 }
 .search-container input[type="text"] {
     width: 100%;
-    padding: 10px 15px;
+    padding: 10px 0 10px 15px;
     font-size: 16px;
     border: 2px solid #ddd;
     border-radius: 50px;
@@ -642,4 +706,19 @@ table tbody tr:hover td:first-child {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+body::-webkit-scrollbar {
+    width: 12px;
+}
+body::-webkit-scrollbar-track {
+    background: #a4a4a4;
+    border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    border: 2px solid #a4a4a4;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #000000;
 }

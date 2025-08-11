@@ -4,7 +4,7 @@ use CodeIgniter\Model;
 class AccountModel extends Model{
     protected $table = 'account';
     protected $primaryKey = 'AccountId';
-    protected $allowedFields = ['accountname','email', 'password','is_active','token','token_created_at','reset_token','reset_token_expires','rol', 'totp_secret']; // Añade 'totp_secret' aquí
+    protected $allowedFields = ['accountname','email', 'password','is_active','token','token_created_at','reset_token','reset_token_expires','rol', 'totp_secret'];
     protected $beforeInsert = ['HashPassword'];
     protected $beforeUpdate = ['HashPassword'];
     protected function HashPassword(array $Data){

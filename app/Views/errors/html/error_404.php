@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title><?= lang('Errors.pageNotFound') ?></title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
+    <link id="form-theme-style" rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
 </head>
 <body>
@@ -21,5 +21,6 @@
             </center>
         </div>
     </center>
+    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
 </body>
 </html>

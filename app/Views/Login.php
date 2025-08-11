@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
-    <link rel="shortcut icon" href="<?= base_url('Images/Login_logo.png') ?>">
-</head>
-<body>
+<?= $this->extend('Layouts/Form') ?>
+<?= $this->section('title') ?>
+    Login
+<?= $this->endSection() ?>
+<?= $this->section('content') ?>
     <button class="back-button" onClick="history.back();">
          <span>« Volver</span>
     </button>
@@ -25,12 +20,11 @@
         </form>
         <p>¿Olvidaste tu contraseña?</p>
         <a href="<?= base_url('/Password/ShowRecoveryForm') ?>">
-            <button class="button">Recuperar Contraseña</button>
+            <button class="button">Recuperar contraseña</button>
         </a>
         <p>¿No tienes una cuenta?</p>
         <a href="<?= site_url('/Register') ?>">
             <button class="button">Registrarse</button>
         </a>
     </div>
-</body>
-</html>
+<?= $this->endSection() ?>

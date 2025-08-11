@@ -83,7 +83,7 @@ class ApiController extends BaseController{
         return $this->response->setStatusCode(ResponseInterface::HTTP_OK, 'Status updated successfully.');
     }
     public function GetStatus(){
-        $DeviceId = $this->request->getGet('device');
+        $DeviceId = $this->request->getGet('Device');
         if (!$DeviceId) {
             return $this->response->setStatusCode(ResponseInterface::HTTP_BAD_REQUEST, 'Device ID not provided.');
         }
@@ -91,6 +91,6 @@ class ApiController extends BaseController{
         if (!$device) {
             return $this->response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND, 'Device not found.');
         }
-        return $this->response->setJSON(['status' => $device['Status']]);
+        return $this->response->setJSON(['status' => $device['status']]);
     }
 }

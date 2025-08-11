@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprar</title>
+    <title><?= $this->renderSection('title') ?></title>
     <link id="page-theme-style" rel="stylesheet" href="<?= base_url('CSS/BlackPage.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
+    <?= $this->renderSection('styles') ?>
 </head>
 <body>
     <nav class="navbar">
@@ -22,9 +23,9 @@
                         <a href="<?= site_url('Devices') ?>">Dispositivos</a>
                         <a href="<?= site_url('Users') ?>">Usuarios</a>
                         <a href="<?= site_url('Logs') ?>">Registros</a>
-                        <a href="<?= site_url('Shop/History') ?>">Historial de compras</a>
+                        <a href="<?= site_url('Shop') ?>">Tienda</a>
                         <a id="change-theme-btn" style="cursor: pointer;">Cambiar estilo</button>
-                        <a id="myBtn" style="cursor: pointer;">Cerrar sesión</a>
+                        <a id="myBtn" style="cursor: pointer;">Cerrar sesion</a>
                     </div>
                 </div>
             <?php else: ?>
@@ -32,20 +33,6 @@
             <?php endif; ?>
         </ul>
     </nav>
-    <div class="parallax"></div>
-    <div class="content">
-        <h1 class="Hello-title">¡Comprá nuestros productos!</h1>
-        <div class="shop-container">
-            <?php foreach ($Products as $Product) : ?>
-                <div class="product-div">
-                    <a href="<?= site_url('/Shop/Product/'.$Product['ProductId']) ?>"><img src="<?= base_url('Images/'.$Product['image'])?>"></a>
-                    <h2><?= $Product['name'] ?></h2>
-                    <h2>USD $<?= $Product['price'] ?></h2>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-    <div class="parallax"></div>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -54,10 +41,12 @@
             <a href="<?= site_url('Logout') ?>"><button class="custom-button">Cerrar</button></a>
         </div>
     </div>
+    <?= $this->renderSection('content') ?>
     <footer class="footer">
         <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contáctanos</a></p>
     </footer>
     <script src="<?= base_url('Scripts/Pag.js') ?>"></script>
     <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
+    <?= $this->renderSection('scripts') ?>
 </body>
 </html>

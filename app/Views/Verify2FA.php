@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificar 2FA</title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
-    <link rel="shortcut icon" href="<?= base_url('Images/Login_logo.png') ?>">
-</head>
-<body>
+<?= $this->extend('Layouts/Form') ?>
+<?= $this->section('title') ?>
+    Verificar 2FA
+<?= $this->endSection() ?>
+<?= $this->section('content') ?>
     <div class="card">
         <h1>Verificación de inicio de sesión</h1>
-        <p>Por favor, ingrese el código de 6 digitos de 2FA de su aplicación de autenticación.</p>
+        <p>Por favor, ingrese el código de 6 dígitos de 2FA de su aplicación de autenticación.</p>
         <p><?= session()->getFlashdata('error') ?></p>
         <form method="post" action="<?= site_url('Process2FA') ?>">
             <div class="form-control">
@@ -20,5 +15,4 @@
             <button class="button" type="submit">Verificar</button>
         </form>
     </div>
-</body>
-</html>
+<?= $this->endSection() ?>

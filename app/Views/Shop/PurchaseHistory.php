@@ -1,37 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historial de compras</title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Page.css') ?>">
-    <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
-    <style>
-        .parallax{
-            background-image: url("<?= base_url('Images/parallax.jpg') ?>");
-            max-height: 2000px; 
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 10%;
-            padding-top: 20%;
-            padding-bottom: 20%;
-        }
-     </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="<?= site_url('/') ?>"><img src="<?= base_url('Images/Logo2.png')?>"></a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="<?= site_url('Shop') ?>"><button class="custom-button">Volver a la tienda</button></a></li>
-        </ul>
-    </nav>
+<?= $this->extend('Layouts/Page') ?>
+<?= $this->section('title') ?>
+    Historial de compras
+<?= $this->endSection() ?>
+<?= $this->section('content') ?>
     <div class="parallax"></div>
     <div class="content">
-    <h1 class="Hello-title">Historial de Compras</h1>
+    <h1 class="Hello-title">Historial de compras</h1>
     <?php if (empty($purchases)): ?>
         <p>No tienes compras registradas.</p>
     <?php else: ?>
@@ -41,7 +15,7 @@
                     <th>Fecha</th>
                     <th>Producto</th>
                     <th>Monto</th>
-                    <th>ID de Transacción PayPal</th>
+                    <th>ID de transacción PayPal</th>
                     <th>Lugar de entrega</th>
                 </tr>
             </thead>
@@ -60,8 +34,4 @@
     <?php endif; ?>
     </div>
     <div class="parallax"></div>
-    <footer class="footer">
-        <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contactanos</a></p>
-    </footer>
-</body>
-</html>
+<?= $this->endSection() ?>

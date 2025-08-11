@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pago cancelado</title>
-    <link rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
-    <link rel="shortcut icon" href="<?= base_url('Images/Logo.png') ?>">
-</head>
-<body>
+<?= $this->extend('Layouts/Form') ?>
+<?= $this->section('title') ?>
+    Pago cancelado
+<?= $this->endSection() ?>
+<?= $this->section('content') ?>
     <a href="<?= site_url('/Shop') ?>">
         <button class="back-button">
             <span>« Volver</span>
@@ -17,5 +12,4 @@
         <h1>Se canceló el pago</h1>
         <a href="<?= site_url('/Shop') ?>"><button class="button">Volver a la tienda</button></a>
     </div>
-</body>
-</html>
+<?= $this->endSection() ?>

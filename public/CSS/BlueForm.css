@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+    overflow-x: hidden;
+    margin:0;
+    padding: 0;
+    background-image: url('../Images/BlueParallax.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Roboto", sans-serif;
+}
+table {
+    border-collapse: collapse;
+    box-shadow: 0 5px 15px rgba(10, 35, 66, 0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 100%;
+    min-width: 80%;
+}
+table thead {
+    background-color: #0A2342;
+    color: white;
+}
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    max-width: 20%;
+    word-break: break-all;
+}
+table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+table th {
+    background-color: #0A2342;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+table td {
+    border-bottom: 1px solid #ddd;
+}
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+table td:first-child {
+    border-left: 5px solid #0A2342;
+}
+table tbody tr:hover td:first-child {
+    border-left-color: #0A2342;
+}
+a{
+    text-decoration: none;
+}
+.button {
+    font-family: "Roboto", sans-serif;
+    background-color: #11345e;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    box-shadow: 0 8px 15px rgba(10, 35, 66, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin: 5px 0;
+}
+.button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: #071a2f;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    z-index: -1;
+}
+.button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+}
+.button:hover {
+    box-shadow: 0 15px 20px rgba(10, 35, 66, 0.4);
+    transform: translateY(-5px);
+}
+.button:active::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s ease-out;
+    z-index: -1;
+}
+@keyframes ripple {
+    to {
+      transform: translate(-50%, -50%) scale(4);
+      opacity: 0;
+    }
+}
+.button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: all 0.3s ease;
+}
+.button:hover::after {
+    left: 100%;
+    transition: all 0.5s ease;
+}
+.card {
+    width: 90%;
+    max-width: 600px;
+    margin: 10% auto;
+    border-radius: 12px;
+    text-align: center;
+    background-color: rgba(10, 35, 66, 0.7);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(10, 35, 66, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    padding: 10px 0;
+}
+.card h1, h2, p{
+    font-family: "Roboto", sans-serif;
+    color: white;
+    text-shadow:#d6d6d6;
+}
+.link{
+    text-decoration: none;
+    color: #ffffff;
+    transition: text-decoration 0.3s ease-in-out;
+}
+.link:visited {
+    color: #ffffff;
+}
+.link:hover {
+    text-decoration: underline;
+}
+.form-control {
+    position: relative;
+    --width-of-input: 300px;
+}
+.input {
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+}
+.input-border {
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    margin: 10px;
+}
+.input:focus {
+    outline: none;
+}
+.input:focus + .input-border {
+    width: 100%;
+}
+.input-alt {
+    font-size: 1.2rem;
+    padding-inline: 1em;
+    padding-block: 0.8em;
+} 
+.input-border-alt {
+    height: 3px;
+    background: linear-gradient(90deg, #FF6464 0%, #FFBF59 50%, #47C9FF 100%);
+    transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1.00);
+} 
+.input-alt:focus + .input-border-alt {
+    width: 96%;
+}
+option{
+    color: #0A2342;
+}
+.logo{
+    max-width: 200px;
+    max-height: 100px;
+    padding: 0;
+}
+.logo img{
+    height: 100%;
+    width: 100%;
+}
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    border: 2px solid #414141;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    left: 0.2em;
+    bottom: 0.2em;
+    background-color: white;
+    border-radius: inherit;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.switch input:checked + .slider {
+    box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
+    border: 2px solid #0974f1;
+}
+.switch input:checked + .slider:before {
+    transform: translateX(1.5em);
+}
+#times {
+    display: none;
+}
+.section {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+.section.open {
+    max-height: 500px;
+}
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    color:#ffffff
+}
+.rotated {
+    transform: rotate(90deg);
+}
+.btn-icon-m {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    justify-content: flex-end;
+}
+.btn-icon-m img {
+    width: 80%;
+    height: auto;
+}
+.btn-icon-m:hover {
+    background-color: #444;
+}
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+}
+.custom-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(10, 35, 66, 0.2);
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.custom-checkbox:checked ~ .checkmark {
+    background-color: #2196F3;
+    box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3);
+}
+.custom-checkbox:checked ~ .checkmark:after {
+    display: block;
+}
+@keyframes checkAnim {
+    0% {
+      height: 0;
+    }
+  
+    100% {
+      height: 10px;
+    }
+}
+.custom-checkbox:checked ~ .checkmark:after {
+    animation: checkAnim 0.2s forwards;
+}  
+.back-button {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+    margin: 10px;
+}
+.back-button:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+}
+.product-img-buy {
+    width: 80%;
+    height: auto;
+    border-radius: 50px;
+    margin: 10px;
+}
+.error{
+    color: red;
+}
