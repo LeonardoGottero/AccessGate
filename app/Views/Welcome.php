@@ -19,7 +19,7 @@
         </div>
         <ul class="nav-links">
             <li><a href="<?= site_url('Shop') ?>"><button class="custom-button">Tienda</button></a></li>
-            <li><a href="<?= site_url('Login') ?>"><button class="custom-button">Iniciar Sesión</button></a></li>
+            <li><a href="<?= site_url('Login') ?>"><button class="custom-button">Iniciar sesión</button></a></li>
         </ul>
     </nav>
     <div class="parallax"></div>
@@ -61,7 +61,7 @@
     </div>
     <div class="parallax"></div>
     <footer class="footer">
-        <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contactanos</a></p>
+        <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contáctanos</a></p>
     </footer>
     <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
     <script>
