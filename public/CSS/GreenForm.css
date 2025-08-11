@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-body{
+
+body {
     overflow-x: hidden;
-    margin:0;
+    margin: 0;
     padding: 0;
-    background-image: url('../Images/Parallax.jpg');
+    background-image: url('../Images/GreenParallax.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Roboto", sans-serif;
 }
+
 table {
     border-collapse: collapse;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -21,43 +23,54 @@ table {
     max-width: 100%;
     min-width: 80%;
 }
+
 table thead {
-    background-color: #363535;
+    background-color: #1c4a1c;
     color: white;
 }
+
 table th, table td {
     padding: 15px;
     text-align: left;
     max-width: 20%;
     word-break: break-all;
+    color: #000;
 }
+
 table tbody tr:nth-child(even) {
-    background-color: #ffffff;
+    background-color: #e8f5e9;
 }
+
 table th {
-    background-color: #363535;
+    background-color: #1c4a1c;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
 }
+
 table td {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #c8e6c9;
 }
+
 table tbody tr:last-child td {
     border-bottom: none;
 }
+
 table td:first-child {
-    border-left: 5px solid #363535;
+    border-left: 5px solid #1c4a1c;
 }
+
 table tbody tr:hover td:first-child {
-    border-left-color: #1a1a2e;
+    border-left-color: #4caf50;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 .button {
     font-family: "Roboto", sans-serif;
-    background-color: #1a1a2e;
+    background-color: #1a5e1a;
     color: #ffffff;
     border: none;
     padding: 15px 30px;
@@ -71,6 +84,7 @@ a{
     z-index: 1;
     margin: 5px 0;
 }
+
 .button::before {
     content: "";
     position: absolute;
@@ -78,19 +92,23 @@ a{
     left: 50%;
     width: 300%;
     height: 300%;
-    background-color: #000000;
+    background-color: #0d3d0d;
     transition: all 0.3s ease;
     border-radius: 50%;
     z-index: -1;
+    transform: translate(-50%, -50%) scale(0);
 }
+
 .button:hover::before {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0.9;
 }
+
 .button:hover {
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-5px);
 }
+
 .button:active::after {
     content: "";
     position: absolute;
@@ -104,12 +122,14 @@ a{
     animation: ripple 0.6s ease-out;
     z-index: -1;
 }
+
 @keyframes ripple {
     to {
-      transform: translate(-50%, -50%) scale(4);
-      opacity: 0;
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
     }
 }
+
 .button::after {
     content: "";
     position: absolute;
@@ -117,52 +137,55 @@ a{
     left: -75%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.8) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
     transform: skewX(-25deg);
     transition: all 0.3s ease;
 }
+
 .button:hover::after {
     left: 100%;
     transition: all 0.5s ease;
 }
+
 .card {
     width: 90%;
     max-width: 600px;
     margin: 10% auto;
     border-radius: 12px;
     text-align: center;
-    background-color: rgba(78, 75, 75, 0.7);
+    background-color: rgba(28, 77, 28, 0.7);
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     padding: 10px 0;
 }
-.card h1, h2, p{
+
+.card h1, .card h2, .card p {
     font-family: "Roboto", sans-serif;
     color: white;
-    text-shadow:#d6d6d6;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
-.link{
+
+.link {
     text-decoration: none;
     color: #ffffff;
     transition: text-decoration 0.3s ease-in-out;
 }
+
 .link:visited {
     color: #ffffff;
 }
+
 .link:hover {
     text-decoration: underline;
 }
+
 .form-control {
     position: relative;
     --width-of-input: 300px;
 }
+
 .input {
     color: #fff;
     font-size: 0.9rem;
@@ -174,6 +197,7 @@ a{
     border: none;
     border-bottom: var(--border-height) solid var(--border-before-color);
 }
+
 .input-border {
     position: absolute;
     width: 0%;
@@ -183,37 +207,46 @@ a{
     transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
     margin: 10px;
 }
+
 .input:focus {
     outline: none;
 }
+
 .input:focus + .input-border {
     width: 100%;
 }
+
 .input-alt {
     font-size: 1.2rem;
     padding-inline: 1em;
     padding-block: 0.8em;
-} 
+}
+
 .input-border-alt {
     height: 3px;
-    background: linear-gradient(90deg, #FF6464 0%, #FFBF59 50%, #47C9FF 100%);
+    background: linear-gradient(90deg, #4CAF50 0%, #81C784 50%, #A5D6A7 100%);
     transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1.00);
-} 
+}
+
 .input-alt:focus + .input-border-alt {
     width: 96%;
 }
-option{
+
+option {
     color: #000000;
 }
-.logo{
+
+.logo {
     max-width: 200px;
     max-height: 100px;
     padding: 0;
 }
-.logo img{
+
+.logo img {
     height: 100%;
     width: 100%;
 }
+
 .switch {
     font-size: 17px;
     position: relative;
@@ -221,19 +254,22 @@ option{
     width: 3.5em;
     height: 2em;
 }
+
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
+
 .slider {
     position: absolute;
     cursor: pointer;
     inset: 0;
-    border: 2px solid #414141;
+    border: 2px solid #5a7a5a;
     border-radius: 50px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .slider:before {
     position: absolute;
     content: "";
@@ -245,49 +281,60 @@ option{
     border-radius: inherit;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
 }
+
 .switch input:checked + .slider {
-    box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
-    border: 2px solid #0974f1;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+    border: 2px solid #4CAF50;
 }
+
 .switch input:checked + .slider:before {
     transform: translateX(1.5em);
 }
+
 #times {
     display: none;
 }
+
 .section {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
 }
+
 .section.open {
     max-height: 500px;
 }
+
 .arrow {
     display: inline-block;
     transition: transform 0.3s ease-in-out;
-    color:#ffffff
+    color: #ffffff;
 }
+
 .rotated {
     transform: rotate(90deg);
 }
+
 .btn-icon-m {
     width: 50px;
     height: 50px;
-    background-color: #333;
+    background-color: #113811;
     border: none;
     border-radius: 50%;
     padding: 5px;
     cursor: pointer;
     justify-content: flex-end;
 }
+
 .btn-icon-m img {
     width: 80%;
     height: auto;
 }
+
 .btn-icon-m:hover {
-    background-color: #444;
+    background-color: #225522;
 }
+
 .checkbox-container {
     display: inline-block;
     position: relative;
@@ -297,6 +344,7 @@ option{
     font-size: 16px;
     user-select: none;
 }
+
 .custom-checkbox {
     position: absolute;
     opacity: 0;
@@ -304,6 +352,7 @@ option{
     height: 0;
     width: 0;
 }
+
 .checkmark {
     position: absolute;
     top: 0;
@@ -315,6 +364,7 @@ option{
     transition: background-color 0.3s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 .checkmark:after {
     content: "";
     position: absolute;
@@ -327,32 +377,36 @@ option{
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
 }
+
 .custom-checkbox:checked ~ .checkmark {
-    background-color: #2196F3;
-    box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3);
+    background-color: #4CAF50;
+    box-shadow: 0 3px 7px rgba(76, 175, 80, 0.3);
 }
+
 .custom-checkbox:checked ~ .checkmark:after {
     display: block;
 }
+
 @keyframes checkAnim {
     0% {
-      height: 0;
+        height: 0;
     }
-  
     100% {
-      height: 10px;
+        height: 10px;
     }
 }
+
 .custom-checkbox:checked ~ .checkmark:after {
     animation: checkAnim 0.2s forwards;
-}  
+}
+
 .back-button {
     display: flex;
     height: 3em;
     width: 100px;
     align-items: center;
     justify-content: center;
-    background-color: #eeeeee4b;
+    background-color: rgba(238, 238, 238, 0.29);
     border-radius: 3px;
     letter-spacing: 1px;
     transition: all 0.2s linear;
@@ -360,17 +414,21 @@ option{
     border: none;
     background: #fff;
     margin: 10px;
+    color: #000;
 }
+
 .back-button:hover {
-    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    box-shadow: 9px 9px 33px #c8e6c9, -9px -9px 33px #ffffff;
     transform: translateY(-2px);
 }
+
 .product-img-buy {
     width: 80%;
     height: auto;
     border-radius: 50px;
     margin: 10px;
 }
-.error{
-    color: red;
+
+.error {
+    color: #ff4d4d;
 }

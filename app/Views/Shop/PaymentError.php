@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error en el pago</title>
-    <link id="form-theme-style" rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
-    <link rel="shortcut icon" href="<?= base_url('Images/Logo.png') ?>">
-</head>
-<body>
+<?= $this->extend('Layouts/Form') ?>
+<?= $this->section('title') ?>
+    Error en el pago
+<?= $this->endSection() ?>
+<?= $this->section('content') ?>
     <a href="<?= site_url('/Shop') ?>">
         <button class="back-button">
             <span>« Volver</span>
@@ -15,7 +10,7 @@
     </a>
     <div class="card">
         <h1 style="color: #dc3545;">¡Error en el proceso de pago!</h1>
-        <p>Por favor intenta nuevamente o contacta con soporte.</p>
+        <p>Por favor intenta nuevamente o contactá con soporte.</p>
         <?php if (session()->has('error')): ?>
             <div class="error-details">
                 <p>Detalles técnicos: <?= session('error') ?></p>
@@ -27,6 +22,4 @@
             </button>
         </a>
     </div>
-    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
-</body>
-</html>
+<?= $this->endSection() ?>

@@ -27,7 +27,7 @@ td a{
     margin-left: 20px;
 }
 .parallax{
-    background-image: url('../Images/Parallax.jpg');
+    background-image: url('../Images/BlackParallax.jpg');
     max-height: 2000px; 
     background-attachment: fixed;
     background-position: center;
@@ -38,7 +38,7 @@ td a{
     padding-bottom: 20%;
 }
 .helloparallax{
-    background-image: url('../Images/Parallax.jpg');
+    background-image: url('../Images/BlackParallax.jpg');
     max-height: 2000px; 
     background-attachment: fixed;
     background-position: center;
@@ -284,6 +284,7 @@ td a{
 table {
     border-collapse: collapse;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: auto;
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: #fff;
@@ -291,6 +292,7 @@ table {
     overflow: hidden;
     max-width: 100%;
     min-width: 80%;
+    margin: auto;
 }
 table thead {
     background-color: #363535;
@@ -423,9 +425,17 @@ table tbody tr:hover td:first-child {
     width: 90%;
     font-size: 1.2em;
 }
+.chart-container {
+    padding: 20px;
+    height: 40vh;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+}
 .accounttable {
     max-width: 100%;
     font-family: "Roboto", sans-serif;
+    margin-bottom: 20px;
 }
 .accounttable th, .accounttable td {
     padding: 10px;
@@ -539,7 +549,7 @@ table tbody tr:hover td:first-child {
 .search-container {
     position: relative;
     width: 300px;
-    margin: 10px;
+    margin: 10px auto;
 }
 .search-container input[type="text"] {
     width: 100%;

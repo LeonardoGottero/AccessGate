@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
-    <link id="form-theme-style" rel="stylesheet" href="<?= base_url('CSS/Form.css') ?>">
-    <link rel="shortcut icon" href="<?= base_url('Images/Login_logo.png') ?>">
-</head>
-<body>
+<?= $this->extend('Layouts/Form') ?>
+<?= $this->section('title') ?>
+    Registrarse
+<?= $this->endSection() ?>
+<?= $this->section('content') ?>
     <button class="back-button" onClick="history.back();">
         <span>« Volver</span>
     </button>
@@ -36,6 +31,4 @@
             <button class="button" type="button">Iniciar sesión</button>
         </a>
     </div>
-    <script src="<?= base_url('Scripts/ThemeSwitcher.js') ?>"></script>
-</body>
-</html>
+<?= $this->endSection() ?>
