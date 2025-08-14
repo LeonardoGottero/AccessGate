@@ -27,7 +27,7 @@ td a{
     margin-left: 20px;
 }
 .parallax{
-    background-image: url('../Images/BlackParallax.jpg');
+    background-image: url('../Images/BlackParallax.png');
     max-height: 2000px; 
     background-attachment: fixed;
     background-position: center;
@@ -38,7 +38,7 @@ td a{
     padding-bottom: 20%;
 }
 .helloparallax{
-    background-image: url('../Images/BlackParallax.jpg');
+    background-image: url('../Images/BlackParallax.png');
     max-height: 2000px; 
     background-attachment: fixed;
     background-position: center;
