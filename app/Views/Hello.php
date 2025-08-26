@@ -2,10 +2,6 @@
 <?= $this->section('title') ?>
     Bienvenido
 <?= $this->endSection() ?>
-<?= $this->section('styles') ?>
-    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2025/08/26/13/20250826135914-FCJI7Y8T.js" defer></script>
-<?= $this->endSection() ?>
 <?= $this->section('content') ?>
     <div class="helloparallax">
         <div class="bienvenido">

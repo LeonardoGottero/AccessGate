@@ -6,6 +6,8 @@
     <title><?= $Product['name']; ?></title>
     <link id="page-theme-style" rel="stylesheet" href="<?= base_url('CSS/BlackPage.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('Images/Logo.png')?>">
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/08/26/15/20250826150506-1UOHCQY4.js" defer></script>
 </head>
 <body>
 <nav class="navbar">
