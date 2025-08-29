@@ -15,7 +15,7 @@ td a{
     color: black;
     text-decoration: underline;
 }
-.addiv{
+.adddiv{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@ td a{
     height: auto;
     margin-bottom: 5px;
 }
-.addiv .custom-button{
+.adddiv .custom-button{
     margin-left: 20px;
 }
 .parallax{

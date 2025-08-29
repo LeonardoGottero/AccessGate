@@ -23,7 +23,7 @@
     <div class="parallax"></div>
         <div class="content">
             <h1 class="Hello-title">Dispositivos</h1>
-            <div class="addiv">
+            <div class="adddiv">
                 <a href="<?= base_url('/Devices/Create'); ?>"><button class="custom-button">Añadir</button></a>
             </div>
             <table>

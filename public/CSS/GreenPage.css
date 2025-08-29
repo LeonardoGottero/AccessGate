@@ -19,7 +19,7 @@ td a {
     text-decoration: underline;
 }
 
-.addiv {
+.adddiv {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +28,7 @@ td a {
     margin-bottom: 5px;
 }
 
-.addiv .custom-button {
+.adddiv .custom-button {
     margin-left: 20px;
 }
 
