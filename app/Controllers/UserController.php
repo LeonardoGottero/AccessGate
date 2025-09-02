@@ -92,7 +92,7 @@ class UserController extends BaseController{
                 $DataDU[] = [
                     'DeviceId' => $Device['DeviceId'],
                     'UserId' => $User['UserId'],
-                    'Allowed' => 0 
+                    'Allowed' => 1
                 ];
             }
             $this->DUModel->insertBatch($DataDU);

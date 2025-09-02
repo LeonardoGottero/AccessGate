@@ -47,6 +47,11 @@ class ApiController extends BaseController{
         if ($currentTime < $user['from_time'] || $currentTime > $user['to_time']) {
             return $this->response->setStatusCode(ResponseInterface::HTTP_FORBIDDEN, 'Access denied outside of allowed time range.');
         }
+        $currentDay = date('N') - 1;
+        $allowedDays = explode(',', $user['allowed_days']);
+        if (!in_array($currentDay, $allowedDays)) {
+            return $this->response->setStatusCode(ResponseInterface::HTTP_FORBIDDEN, 'Access denied on this day.');
+        }
         $actionWeb = ($data->action == 2) ? 0 : 1;
         $this->LogModel->insert([
             'UserId' => $user['UserId'],
