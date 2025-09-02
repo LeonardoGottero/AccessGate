@@ -50,6 +50,8 @@ class UserController extends BaseController{
         $Tag = $this->request->getPost('tag');
         $Email = $this->request->getPost('email');
         $Time = $this->request->getPost('time');
+        $allowedDays = $this->request->getPost('allowed_days');
+        $allowedDaysStr = $allowedDays ? implode(',', $allowedDays) : null;
         if($Time){
             $FromTime = $this->request->getPost('from_time');
             $ToTime = $this->request->getPost('to_time');
@@ -66,6 +68,7 @@ class UserController extends BaseController{
             'token' => $Token,
             'from_time' => $FromTime,
             'to_time' => $ToTime,
+            'allowed_days' => $allowedDaysStr,
             'AccountId' => $AccountId
         ];
         if ($this->UserModel->TagExists($Tag, null)) {
@@ -118,13 +121,16 @@ class UserController extends BaseController{
             $FromTime = '00:00:00';
             $ToTime = '23:59:59';
         }
+        $allowedDays = $this->request->getPost('allowed_days');
+        $allowedDaysStr = $allowedDays ? implode(',', $allowedDays) : null;
         $Data = [
             'name' => $this->request->getPost('name'),
             'surname' => $this->request->getPost('surname'),
             'email' => $this->request->getPost('email'),
             'tag' => $this->request->getPost('tag'),
             'from_time' => $FromTime,
-            'to_time' => $ToTime
+            'to_time' => $ToTime,
+            'allowed_days' => $allowedDaysStr
         ];
         $User = $this->UserModel->where('UserId',$UserId)->first();
         $Tag = $this->request->getPost('tag');
