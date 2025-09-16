@@ -26,7 +26,7 @@
     </nav>
     <div class="parallax"></div>
     <div class="content">
-        <h1 class="Hello-title">¡Bienvenido a la página de accessgate!</h1>
+        <h1 class="Hello-title">¡Bienvenido a la página de Accessgate!</h1>
         <div class="card">
             <p class="card-title">
                 Nos complace ofrecerte una solución eficiente y segura para controlar el acceso a tu empresa.
