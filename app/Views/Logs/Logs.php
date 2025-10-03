@@ -38,15 +38,7 @@
                         ?>
                     </td>
                     <td><?= $Log['time'] ?></td>
-                    <td>
-                        <?php 
-                            foreach ($Devices as $Device) {
-                                if ($Device['DeviceId'] == $Log['DeviceId']) {
-                                    echo $Device['device_name'];
-                                }
-                            }
-                        ?>
-                    </td>
+                    <td><?= $Log['device_name'] ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
