@@ -6,7 +6,7 @@
     <div class="parallax"></div>
     <div class="content">
         <h1 class="Hello-title">Usuarios</h1>
-        <div class="addiv">
+        <div class="adddiv">
             <form action="<?= site_url('/Users/Search')?>" method="Post">
                 <div class="search-container">
                     <input type="text" name="search" placeholder="Buscar...">

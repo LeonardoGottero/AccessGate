@@ -49,6 +49,35 @@
                     <input type="time" class="input input-alt" id="to_time" name="to_time" placeholder="Hasta" disabled value="<?= isset($User) ? $User['to_time'] : '' ?>">
                     <span class="input-border input-border-alt"></span>
                 </div>
+                <div class="form-group">
+                    <h2 class="Hello-title">Días permitidos</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Día</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+                            $allowed_days = isset($User) && $User['allowed_days'] ? explode(',', $User['allowed_days']) : [];
+                            foreach ($days as $i => $day) {
+                                $checked = in_array($i, $allowed_days) ? 'checked' : '';
+                                echo "<tr>
+                                        <td>{$day}</td>
+                                        <td>
+                                            <label class='checkbox-container'>
+                                                <input class='custom-checkbox' type='checkbox' name='allowed_days[]' value='{$i}' {$checked}>
+                                                <span class='checkmark'></span>
+                                            </label>
+                                        </td>
+                                      </tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <p><?= session()->getFlashdata('error') ?></p>
             <button type="submit" class="button"><?= isset($User) ? 'Actualizar Usuario' : 'Crear Usuario' ?></button>

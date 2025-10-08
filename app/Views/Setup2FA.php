@@ -22,5 +22,9 @@
             <button class="button" type="submit">Confirmar y Activar 2FA</button>
         </form>
         <p style="margin-top: 20px;">Puedes cambiar el 2FA en la configuración de tu perfil en cualquier momento.</p>
+        <p>¿Cambiaste de opinión?</p>
+        <a href="<?= base_url('/disable-2fa') ?>">
+            <button class="button">Eliminar 2fa</button>
+        </a>
     </div>
 <?= $this->endSection() ?>

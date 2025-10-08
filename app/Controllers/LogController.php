@@ -21,9 +21,8 @@ class LogController extends BaseController{
         if (!$AccountId) {
             return redirect()->to('/Login');
         }
-        $Devices = $this->DeviceModel->where('AccountId', $AccountId)->findAll();
         $Logs = $this->LogModel->GetLogsWithAccountId($AccountId);
-        return view('/Logs/Logs', ['Logs' => $Logs, 'Devices' => $Devices]);
+        return view('/Logs/Logs', ['Logs' => $Logs]);
     }
     public function SearchUserLogs(){
         $AccountId = session()->get('accountid');
