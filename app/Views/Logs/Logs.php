@@ -6,7 +6,6 @@
     <div class="parallax"></div>
     <div class="content">
         <h1 class="Hello-title">Registros</h1>
-        <p class="Hello-title">Los registros se eliminan cada 7 días</p>
         <form action="<?= site_url('/Logs/Search')?>" method="Post">
             <div class="search-container">
                 <input type="text" name="search" placeholder="Buscar...">
