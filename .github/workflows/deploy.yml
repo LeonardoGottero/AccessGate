@@ -2,23 +2,29 @@ name: Deploy to AWS
 
 on:
   push:
-    branches:
-      - main   # o "master" si usás esa rama
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Clonar repo
+        uses: actions/checkout@v3
 
-      - name: Deploy via SSH
-        uses: appleboy/scp-action@v0.1.7
+      - name: Copiar archivos al servidor
+        uses: appleboy/scp-action@v0.1.4
         with:
-          host: ${{ secrets.AWS_HOST }}
+          host: 56.124.101.132          
+          username: ubuntu           
+          key: ${{ secrets.AWS_SSH_KEY }}
+          source: "."
+          target: "/var/www/html"
+
+      - name: Reiniciar Apache
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: 56.124.101.132
           username: ubuntu
           key: ${{ secrets.AWS_SSH_KEY }}
-          source: "./"
-          target: "/var/www/html"
-          rm: true
+          script: |
+            sudo systemctl restart apache2
