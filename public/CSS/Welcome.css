@@ -51,6 +51,43 @@ body {
     height: 100px;
     background-color: #000000;
 }
+.nav-toggle {
+    display: none;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    position: absolute;
+    right: 20px;
+}
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background-color: #030303d3;
+        flex-direction: column; 
+        align-items: center;
+        margin-left: 0;
+    }
+    .nav-links.show {
+        display: flex; 
+    }
+    .navbar a {
+        margin: 0;
+        padding: 15px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .navbar .logo {
+        text-align: center;
+        position: static;
+        transform: none;
+    }
+}
 .carousel {
     position: relative;
     max-width: 100%;
@@ -69,14 +106,16 @@ body {
 .carousel-item img {
     width: 100%;
     vertical-align: middle;
-    max-height: 578px;
+    min-height: cover;
+    height: 600px;
     object-fit: cover;
 }
 .carousel-caption {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 40%;
+    width: cover;
+    max-width: 50%;
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
     padding: 10px 20px;
@@ -87,7 +126,7 @@ body {
 }
 .carousel-caption h1 {
     margin: 0 0 10px 0;
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }

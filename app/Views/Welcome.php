@@ -14,7 +14,9 @@
         <div class="logo">
             <a href="<?= site_url('/') ?>"><img src="<?= base_url('Images/Logo2.png')?>"></a>
         </div>
-        <div class="nav-links">
+        <a href="javascript:void(0);" class="nav-toggle" id="nav-toggle">
+            &#9776; </a>
+        <div class="nav-links" id="nav-links">
             <a href="<?= site_url('/') ?>">Inicio</a>
             <a href="<?= site_url('/Shop') ?>">Tienda</a>
             <a href="<?= site_url('/Login') ?>">Iniciar sesión</a>
@@ -79,8 +81,12 @@
                 updateCarousel();
             });
         });
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('show');
+        });
     </script>
     <footer class="footer">
         <p>&copy; 2025 Accessgate. Todos los derechos reservados. <a href="mailto:accessgatenoreply@gmail.com">Contáctanos</a></p>
     </footer>
 </body>
+</html>
