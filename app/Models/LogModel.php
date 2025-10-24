@@ -22,7 +22,7 @@ class LogModel extends Model {
         $Terms = explode(' ', $Search);
         $query = $this->db->table($this->table)
             ->select('logs.*, users.name as name, users.surname as surname, devices.device_name as device_name')
-            ->join('users', 'users.eviceId = logs.UserId', 'left')
+            ->join('users', 'users.UserId = logs.UserId', 'left')
             ->join('devices', 'devices.DeviceId = logs.DeviceId', 'left')
             ->orderBy('logs.time', 'DESC')
             ->where('logs.AccountId', $AccountId);
