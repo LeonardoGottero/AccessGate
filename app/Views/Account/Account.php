@@ -18,7 +18,6 @@
                     <td width="40px"><a href="<?= base_url('Account/ChangeSomethingForm/Mail'); ?>"><button class="btn-icon"><img height="20px" src="<?= base_url('Images/Edit.png')?>"></button></a></td>
                 </tr>
             </table>
-            <a href="<?= site_url('/Devices') ?>"><button class="custom-button">Ver dispositivos</button></a>
             <p><?= session()->getFlashdata('message') ?><?= session()->getFlashdata('error') ?></p>
             <?php if(session()->get('rol') == 'Admin'): ?>
                 <a href="<?= site_url('/Admin') ?>"><button class="custom-button">Vista admin</button></a>

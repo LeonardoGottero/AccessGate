@@ -112,7 +112,7 @@ class DeviceController extends BaseController{
                     ->update();
         }
         if ($this->DeviceModel->DeviceExists($DeviceUid, $DeviceId, $AccountId)) {
-            return redirect()->back()->with('error', 'El dispositivos ya esta registrado en otra cuenta');
+            return redirect()->back()->with('error', 'El dispositivo ya esta registrado en otra cuenta');
         }
         if ($this->DeviceModel->update($DeviceId, $Data)) {
             return redirect()->to('/Devices')->with('message', 'Dispositivo actualizado correctamente');

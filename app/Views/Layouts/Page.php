@@ -27,7 +27,7 @@
                         <a href="<?= site_url('Logs') ?>">Registros</a>
                         <a href="<?= site_url('Shop') ?>">Tienda</a>
                         <a id="change-theme-btn" style="cursor: pointer;">Cambiar estilo</button>
-                        <a id="myBtn" style="cursor: pointer;">Cerrar sesion</a>
+                        <a id="myBtn" style="cursor: pointer;">Cerrar sesión</a>
                     </div>
                 </div>
             <?php else: ?>
