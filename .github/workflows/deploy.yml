@@ -11,14 +11,26 @@ jobs:
       - name: Clonar repo
         uses: actions/checkout@v3
 
-      - name: Copiar archivos al servidor
+      - name: Copiar archivos al servidor (con overwrite)
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: 56.124.101.132          
-          username: ubuntu           
+          host: 56.124.101.132
+          username: ubuntu
           key: ${{ secrets.AWS_SSH_KEY }}
           source: "."
           target: "/var/www/html"
+          overwrite: true
+          rm: false  
+
+      - name: Ajustar permisos (opcional pero recomendado)
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: 56.124.101.132
+          username: ubuntu
+          key: ${{ secrets.AWS_SSH_KEY }}
+          script: |
+            sudo chown -R ubuntu:www-data /var/www/html
+            sudo chmod -R 775 /var/www/html
 
       - name: Reiniciar Apache
         uses: appleboy/ssh-action@v0.1.10
