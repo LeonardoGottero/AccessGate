@@ -44,7 +44,6 @@ $routes->post('/Password/RequestRecovery', 'PasswordController::RequestRecovery'
 $routes->get('/Password/ShowResetForm/(:any)', 'PasswordController::ShowResetForm/$1');
 $routes->post('/Password/Update/(:any)', 'PasswordController::Update/$1');
 $routes->get('/Logs','LogController::Index');
-$routes->get('/Logs/DeleteAuto','LogController::DeleteLogsAuto');
 $routes->post('/Logs/Search', 'LogController::SearchUserLogs');
 $routes->post('/Board/CheckTag', 'ApiController::CheckTag');
 $routes->post('/Board/SetStatus', 'ApiController::SetStatus');

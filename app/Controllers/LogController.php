@@ -34,7 +34,4 @@ class LogController extends BaseController{
         $Devices = $this->DeviceModel->where('AccountId', $AccountId)->findAll();
         return view('/Logs/Logs', ['Logs' => $Logs, 'Devices' => $Devices]);
     }
-    public function DeleteLogsAuto(){
-        $this->LogModel->DeleteOldLogs();
-    }
 }
