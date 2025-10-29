@@ -125,7 +125,7 @@ class AccountController extends BaseController {
         $EmailService->setFrom('accessgatenoreply@gmail.com', 'Accessgate');
         $EmailService->setTo($Email);
         $EmailService->setSubject('Confirmación de eliminacion de cuenta');
-        $EmailService->setMessage("Hola $AccountName, \n\nParece que quieres eliminar tu cuenta de accessgate. Puedes eliminarla haciendo click <a href='\n\nhttps://accessgate.onrender.com/Account/GoToDelete/$Token'>aquí</a>");
+        $EmailService->setMessage("Hola $AccountName, \n\nParece que quieres eliminar tu cuenta de accessgate. Puedes eliminarla haciendo click <a href='\n\nhttps://accessgate.site/Account/GoToDelete/$Token'>aquí</a>");
         if (!$EmailService->send()) {
             log_message('message', 'No se pudo enviar el correo de confirmación: ' . $EmailService->printDebugger());
         }

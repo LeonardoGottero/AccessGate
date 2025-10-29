@@ -43,7 +43,7 @@ class AuthController extends BaseController {
         $EmailService->setFrom('accessgatenoreply@gmail.com', 'Accessgate');
         $EmailService->setTo($Email);
         $EmailService->setSubject('Confirmación de Registro');
-        $EmailService->setMessage("Hola $Accountname, \n\nGracias por registrarte. Por favor, confirma tu correo haciendo clic <a href='\n\nhttps://accessgate.onrender.com/Confirm/$Token'>aquí</a>");
+        $EmailService->setMessage("Hola $Accountname, \n\nGracias por registrarte. Por favor, confirma tu correo haciendo clic <a href='\n\nhttps://accessgate.site/Confirm/$Token'>aquí</a>");
         if (!$EmailService->send()) {
             log_message('error', 'No se pudo enviar el correo de confirmación: ' . $EmailService->printDebugger());
         }

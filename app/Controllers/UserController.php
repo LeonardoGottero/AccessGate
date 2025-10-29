@@ -240,7 +240,7 @@ class UserController extends BaseController{
         $EmailService->setFrom('accessgatenoreply@gmail.com', 'Accessgate');
         $EmailService->setTo($Email);
         $EmailService->setSubject('Confirmación de usuario');
-        $EmailService->setMessage("Hola $Username, \n\nParece que tu mail esta intentando ser conectado a un usuario de accessgate. Si no perteneces a una organizacion que usa accessgate puedes eliminar tu usuario clickeando <a href='\n\nhttps://accessgate.onrender.com/Users/UserSelfDelete/$Token'>aquí</a>");
+        $EmailService->setMessage("Hola $Username, \n\nParece que tu mail esta intentando ser conectado a un usuario de accessgate. Si no perteneces a una organizacion que usa accessgate puedes eliminar tu usuario clickeando <a href='\n\nhttps://accessgate.site/Users/UserSelfDelete/$Token'>aquí</a>");
         $EmailService->send();
     }
     public function UserSelfDelete($Token){

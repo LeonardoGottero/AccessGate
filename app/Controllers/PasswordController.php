@@ -22,7 +22,7 @@ class PasswordController extends BaseController{
             $EmailService = \Config\Services::email();
             $EmailService->setTo($Account['email']);
             $EmailService->setSubject('Recuperación de contraseña');
-            $EmailService->setMessage("Haz clic <a href='\n\nhttps://accessgate.onrender.com/Password/ShowResetForm/$Token'>aquí</a> para recuperar tu contraseña");
+            $EmailService->setMessage("Haz clic <a href='\n\nhttps://accessgate.site/Password/ShowResetForm/$Token'>aquí</a> para recuperar tu contraseña");
             if ($EmailService->send()) {
                 return redirect()->to('/Login')->with('message', 'Enlace de recuperación enviado a tu correo.');
             } else {
