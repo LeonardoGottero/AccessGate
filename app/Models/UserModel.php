@@ -10,4 +10,4 @@ class UserModel extends Model{
                     ->where('UserId !=', $userId)
                     ->first() !== null;
     }
-}    
+}
